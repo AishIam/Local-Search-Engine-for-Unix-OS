@@ -1,4 +1,4 @@
-/*********************************************************************************************************
+/*****************************************************************************************************
 ** FILENAME       :    localSearchEngine.c
 **
 ** DESCRIPTION    :    implementation of the Local Search Engine
@@ -12,7 +12,7 @@
 ** 
 ** Copyright © 2022 Capgemini Group All Rights Reserved
 **
-********************************************************************************************************/
+*****************************************************************************************************/
 
 /*************************************************************************
                         HEADER FILES
@@ -28,15 +28,15 @@
 **	   FUNCTION TAG		   :	--DRIVER_FUNCTION--
 **
 **     RETURNS             :	EXIT_SUCCESS - When the code runs successfully.
-**								EXIT_FAILURE - When the code runs unsuccessfully.
+**				EXIT_FAILURE - When the code runs unsuccessfully.
 **
-***********************************************************************************************************/
+*****************************************************************************************************/
 
 int main(){
 	
 	FILE *fp = NULL;
 	
-	//change variables accordingly
+	//Change variables accordingly
 	int status;
 		
 }
