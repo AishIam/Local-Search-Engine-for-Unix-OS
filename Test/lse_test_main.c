@@ -3,7 +3,7 @@
 **
 ** DESCRIPTION    :    Main function to call the CUNIT Framework
 **
-** Revision History   :    V_1.0
+** Revision History   :    V_0.1
 **
 ** DATE
 ** ------------------------------------------------------------------------------------------------
@@ -57,38 +57,38 @@ int main(int argc, char *argv[])
        return CU_get_error();
 
     /* Add init and cleanup handlers */
-    pSuite = CU_add_suite("LOCAL SEARCH ENGINE SUITE",init_lse, clean_lse);
+    pSuite = CU_add_suite("LOCAL SEARCH ENGINE TEST SUITE",init_lse, clean_lse);
     if (NULL == pSuite)
     {
         CU_cleanup_registry();
         return CU_get_error();
     }
 
-    /* Add test case */
+    /* test cases added */
     
     //TODO: ADD COMMENTS AND MORE TEST RUNNERS IF NEEDED
     
     if(NULL == CU_add_test(pSuite,"Mytestfunction_textSeach_ID_1", Mytestfunction_textSearch))
     {
-       CU_cleanup_registry();
+       	CU_cleanup_registry();
         return CU_get_error();
     }
     
     if(NULL == CU_add_test(pSuite,"Mytestfunction_textSearch2_ID_2", Mytestfunction_textSearch2))
     {
-       CU_cleanup_registry();
+       	CU_cleanup_registry();
         return CU_get_error();
     }
     
     if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch_ID_3", Mytestfunction_fileSearch))
     {
-       CU_cleanup_registry();
+       	CU_cleanup_registry();
         return CU_get_error();
     }
     
     if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch2_ID_4", Mytestfunction_fileSearch2))
     {
-       CU_cleanup_registry();
+       	CU_cleanup_registry();
         return CU_get_error();
     }
     
