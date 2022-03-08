@@ -36,7 +36,7 @@ int main(){
 	
 	FILE *fp = NULL;
 	
-	//change variables accordingly
+	//Change variables accordingly
 	int status;
 		
 }
