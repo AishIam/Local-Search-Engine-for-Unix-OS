@@ -21,12 +21,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-
+#include <dirent.h>
+#include <pthread.h>
 /****************************** Macros  ***************************************/
-
-
-
+#define MAX 100
 /****************************** Functions  ***************************************/
+extern void textSearch();
+
 
 
 #endif

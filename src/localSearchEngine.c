@@ -25,18 +25,16 @@
 **
 **     DESCRIPTION         :    It is a driver function for the application.
 **
-**	   FUNCTION TAG		   :	--DRIVER_FUNCTION--
+**     FUNCTION TAG	   :	--DRIVER_FUNCTION--
 **
 **     RETURNS             :	EXIT_SUCCESS - When the code runs successfully.
 **				EXIT_FAILURE - When the code runs unsuccessfully.
 **
 *****************************************************************************************************/
 
-int main(){
-	
-	FILE *fp = NULL;
-	
-	//Change variables accordingly
-	int status;
-		
+int main()
+{
+	textSearch();
+
+	return EXIT_SUCCESS;			
 }

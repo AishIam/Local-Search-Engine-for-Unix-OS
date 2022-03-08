@@ -1,0 +1,180 @@
+find: ‘/etc/polkit-1/localauthority’: Permission denied
+find: ‘/etc/ssl/private’: Permission denied
+find: ‘/mnt/c/$RECYCLE.BIN/S-1-5-18’: Permission denied
+find: ‘/mnt/c/$RECYCLE.BIN/S-1-5-21-1682786448-2603818596-1271540855-500’: Permission denied
+find: ‘/mnt/c/$RECYCLE.BIN/S-1-5-21-1713121326-4263826799-4174209880-1000’: Permission denied
+find: ‘/mnt/c/$RECYCLE.BIN/S-1-5-21-1713121326-4263826799-4174209880-500’: Permission denied
+find: ‘/mnt/c/Config.Msi’: Permission denied
+find: ‘/mnt/c/IntelOptaneData’: Permission denied
+find: ‘/mnt/c/PerfLogs’: Permission denied
+find: ‘/mnt/c/Program Files/WindowsApps’: Permission denied
+find: ‘/mnt/c/Program Files (x86)/BraveSoftware/CrashReports’: Permission denied
+find: ‘/mnt/c/Program Files (x86)/Google/CrashReports’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Crypto/PCPKSP/WindowsAIK’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Diagnosis’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Network/Downloader’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Provisioning/AssetCache’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Search/Data’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/SmsRouter’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Spectrum’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/AppRepository’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/Hyper-V’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/LfSvc’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/Models’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/PackagedEventProviders’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/Power Efficiency Diagnostics’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/SystemData’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/WER/ReportArchive/AppCrash_HPCommRecovery.e_2c2afd9219674eddb0cda5adb48314d29aefa4_a2aa3432_df2de6d6-39f4-4538-8b39-b907ce48de29’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/WER/ReportArchive/AppCrash_HPCommRecovery.e_f5f09652e16f58e21a66645a5bedbf664675213_a2aa3432_8b847918-4772-45cf-bb2d-eeafe552b026’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_MicrosoftEdgeUpd_5de2c05e64673ae2c1fc8d5d1d5a58a30cc84a5_00000000_c30f8100-981a-41ce-bd80-650050eb2260’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows/wfp’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows Defender/Clean Store’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows Defender/Features’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows Defender/LocalCopy’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows Defender/Network Inspection System’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows Defender/Quarantine’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows Defender/Scans’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows Defender/Support’: Permission denied
+find: ‘/mnt/c/ProgramData/Microsoft/Windows NT/MSFax’: Permission denied
+find: ‘/mnt/c/ProgramData/NVIDIA Corporation/NvTelemetry/reports’: Permission denied
+find: ‘/mnt/c/ProgramData/Packages’: Permission denied
+find: ‘/mnt/c/ProgramData/WindowsHolographicDevices’: Permission denied
+find: ‘/mnt/c/Recovery’: Permission denied
+find: ‘/mnt/c/System Volume Information’: Permission denied
+find: ‘/mnt/c/Users/abhin/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs’: Permission denied
+find: ‘/mnt/c/Users/abhin/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/temp/{e9143a92-b018-4f29-92c1-068d2054d192}’: Permission denied
+find: ‘/mnt/c/Windows/appcompat/Programs’: Permission denied
+find: ‘/mnt/c/Windows/InfusedApps’: Permission denied
+find: ‘/mnt/c/Windows/LiveKernelReports’: Permission denied
+find: ‘/mnt/c/Windows/Logs/HomeGroup’: Permission denied
+find: ‘/mnt/c/Windows/Logs/Telephony’: Permission denied
+find: ‘/mnt/c/Windows/ModemLogs’: Permission denied
+find: ‘/mnt/c/Windows/PLA/Reports’: Permission denied
+find: ‘/mnt/c/Windows/PLA/Rules’: Permission denied
+find: ‘/mnt/c/Windows/PLA/Templates’: Permission denied
+find: ‘/mnt/c/Windows/Prefetch’: Permission denied
+find: ‘/mnt/c/Windows/Provisioning/Autopilot’: Permission denied
+find: ‘/mnt/c/Windows/Resources/Themes/aero/VSCache’: Permission denied
+find: ‘/mnt/c/Windows/security/audit’: Permission denied
+find: ‘/mnt/c/Windows/security/cap’: Permission denied
+find: ‘/mnt/c/Windows/ServiceProfiles/LocalService’: Permission denied
+find: ‘/mnt/c/Windows/ServiceProfiles/NetworkService’: Permission denied
+find: ‘/mnt/c/Windows/ServiceState’: Permission denied
+find: ‘/mnt/c/Windows/System32/Com/dmp’: Permission denied
+find: ‘/mnt/c/Windows/System32/config’: Permission denied
+find: ‘/mnt/c/Windows/System32/Configuration’: Permission denied
+find: ‘/mnt/c/Windows/System32/drivers/DriverData’: Permission denied
+find: ‘/mnt/c/Windows/System32/DriverState’: Permission denied
+find: ‘/mnt/c/Windows/System32/FxsTmp’: Permission denied
+find: ‘/mnt/c/Windows/System32/ias’: Permission denied
+find: ‘/mnt/c/Windows/System32/LogFiles/Fax/Incoming’: Permission denied
+find: ‘/mnt/c/Windows/System32/LogFiles/Fax/Outgoing’: Permission denied
+find: ‘/mnt/c/Windows/System32/LogFiles/Firewall’: Permission denied
+find: ‘/mnt/c/Windows/System32/LogFiles/WMI’: Permission denied
+find: ‘/mnt/c/Windows/System32/MsDtc’: Permission denied
+find: ‘/mnt/c/Windows/System32/networklist’: Permission denied
+find: ‘/mnt/c/Windows/System32/SleepStudy’: Permission denied
+find: ‘/mnt/c/Windows/System32/spool/PRINTERS’: Permission denied
+find: ‘/mnt/c/Windows/System32/spool/SERVERS’: Permission denied
+find: ‘/mnt/c/Windows/System32/sru’: Permission denied
+find: ‘/mnt/c/Windows/System32/Tasks’: Permission denied
+find: ‘/mnt/c/Windows/System32/Tasks_Migrated’: Permission denied
+find: ‘/mnt/c/Windows/System32/wbem/MOF’: Permission denied
+find: ‘/mnt/c/Windows/System32/WDI’: Permission denied
+find: ‘/mnt/c/Windows/SystemTemp’: Permission denied
+find: ‘/mnt/c/Windows/SysWOW64/Com/dmp’: Permission denied
+find: ‘/mnt/c/Windows/SysWOW64/config’: Permission denied
+find: ‘/mnt/c/Windows/SysWOW64/Configuration’: Permission denied
+find: ‘/mnt/c/Windows/SysWOW64/FxsTmp’: Permission denied
+find: ‘/mnt/c/Windows/SysWOW64/Msdtc’: Permission denied
+find: ‘/mnt/c/Windows/SysWOW64/networklist’: Permission denied
+find: ‘/mnt/c/Windows/SysWOW64/sru’: Permission denied
+find: ‘/mnt/c/Windows/SysWOW64/Tasks’: Permission denied
+find: ‘/mnt/c/Windows/Temp’: Permission denied
+find: ‘/mnt/c/Windows.old/PerfLogs’: Permission denied
+find: ‘/mnt/c/Windows.old/Program Files/WindowsApps’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Crypto/PCPKSP/WindowsAIK’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Crypto/RSA/S-1-5-18’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Crypto/SystemKeys’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Diagnosis’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/MapData/mapscache/BitsTemp’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Network/Downloader’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Provisioning/AssetCache’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/SmsRouter’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Spectrum’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/AppRepository’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/LfSvc’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/PackagedEventProviders’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/Power Efficiency Diagnostics’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/SystemData’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/AppCrash_AUDIODG.EXE_1c83936d4854e4618462b045b74d473dcf31e2_ae381556_1e3cc042’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/AppCrash_AUDIODG.EXE_57342d3eea2a1ef99c29ed5ccfe7a4c0f2abf2_67e74df5_157c5479’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/AppCrash_HPCommRecovery.e_f5f09652e16f58e21a66645a5bedbf664675213_a2aa3432_157c4f58’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/Critical_10.0.19041.1525__a97bd6a7c34c629c3d659fded564fefe381739_00000000_3f75ae28’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.112_44c98286d9aca049d4a752c8743f2674df53_00000000_1e3c4de1’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.112_5b5fe412dcc66e48ed4cdc6fc3114c9ea221ae_00000000_1e3c8898’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.112_852f39fe36d95321665fa49355d6f345f12d94a_00000000_1e3cb95d’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.112_b3b081473ce099a29688ad166a59acc168f13c4_00000000_1e3c9124’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.112_d74ea4207c118dac1035b0a629e533d980b9a1c_00000000_2eaee43c’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.112_d875a8a395a6bf17c2f52a82eeeb986257398c76_00000000_1e3c634d’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.112_f78a833b24536119b459dd84d594865e5368_00000000_1e3cb43c’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.1304_13abd4b523575984f8c52264b843271c275a29_00000000_1634a4b5’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.1304_1f6b7ba0429f23809c171a308a6c76ecf91633_00000000_10b64438’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.1304_69cd64ade41ed1bb69c0366ebecaff8dcefa6_00000000_10b6213f’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.1304_71a0db6f119f672722122d1e85b7e7bf162a80_00000000_10b629fa’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_10.0.17134.1304_d5375e7661e269cbd9788cf48fcfffc69f5a8fc_00000000_045d3ef9’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_unspecified_7a504c5e1f33cdb4c15eb717d7532818b9bbdd64_00000000_288c12f4’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_unspecified_f76731279348eaa3c75be56e21af69cf3cc7568_00000000_288c2767’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/WER/ReportArchive/NonCritical_Update;Update;Sc_5c184d67489b3d37e537577f19e01fb099766543_00000000_16349a93’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows/wfp’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows Defender/Features’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows Defender/Network Inspection System’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows Defender/Scans’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows Defender/Support’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/Microsoft/Windows NT/MSFax’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/USOPrivate’: Permission denied
+find: ‘/mnt/c/Windows.old/ProgramData/WindowsHolographicDevices’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/appcompat/Programs’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/InfusedApps’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/LiveKernelReports’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/Logs/HomeGroup’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/Logs/Telephony’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/ModemLogs’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/PLA/Reports’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/PLA/Rules’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/PLA/Templates’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/Prefetch’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/Resources/Themes/aero/VSCache’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/security/audit’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/security/cap’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/ServiceProfiles/LocalService’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/ServiceProfiles/NetworkService’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/ServiceState’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/com/dmp’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/config’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/Configuration’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/drivers/DriverData’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/DriverState’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/FxsTmp’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/ias’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/LogFiles/Fax/Incoming’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/LogFiles/Fax/Outgoing’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/LogFiles/Firewall’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/LogFiles/WMI’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/MsDtc’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/networklist’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/SleepStudy’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/spool/PRINTERS’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/spool/SERVERS’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/sru’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/Tasks’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/System32/WDI’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/SysWOW64/com/dmp’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/SysWOW64/config’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/SysWOW64/Configuration’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/SysWOW64/FxsTmp’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/SysWOW64/Msdtc’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/SysWOW64/networklist’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/SysWOW64/sru’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/SysWOW64/Tasks’: Permission denied
+find: ‘/mnt/c/Windows.old/windows/Temp’: Permission denied
