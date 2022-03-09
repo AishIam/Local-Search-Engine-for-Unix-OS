@@ -23,6 +23,8 @@
 
 void textSearch()
 {
+	
+	// add comments
 	FILE *fp;
 	FILE *files;
 	char* x;
@@ -41,7 +43,7 @@ void textSearch()
 	
 	if(system(x) != 0 )
 	{
-		printf("System call not possible\n");
+		printf("System call not possible\n");   //error file
 	}
 
 	char buff[10000];
