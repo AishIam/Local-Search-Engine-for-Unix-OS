@@ -23,16 +23,18 @@
 
 void textSearch()
 {
-	int c;
-	while ((c = getchar()) != '\n' && c != EOF) {
-    		continue;
-	}	
 	// add comments
 	FILE *fp;
 	FILE *files;
 	char* x;
 	char *string = NULL;
 	char temp[MAX];
+
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF) {
+    		continue;
+	}
+	
 	x = (char*) malloc (100 * sizeof(char));
 
 	printf("\nEnter the String to be searched : ");
