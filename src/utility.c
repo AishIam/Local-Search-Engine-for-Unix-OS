@@ -79,3 +79,46 @@ void textSearch()
 	free(x);
 	printf("\n");
 }
+
+int fileSearch()
+{
+	/* local variables */
+	char file_path[PATH_MAX];
+	char buffer[MAX];
+	int read_len;
+	FILE *fp;
+	
+	/* get file path from user */
+	printf("Enter the path of the file: ");
+	fgets(file_path, PATH_MAX, stdin);
+	
+	/* remove \n from the file path */
+	read_len = strlen(file_path);
+	if(file_path[read_len - 1] == '\n')
+	{
+		file_path[read_len - 1] = '\0';
+	}
+	
+	/* Open file specified by user in read mode */
+	fp = fopen(file_path, READ_MODE);
+	if(fp == NULL)
+	{
+		fprintf(stderr, "\nCould not open file!"); //Error Handling
+		return EXIT_FAILURE;
+	}
+	
+	printf("\nFile contents are:\n--------------------------------\n");
+	/* Get lines from the file */
+	while(fgets(buffer, MAX, fp) != NULL)
+	{
+		printf("%s", buffer);
+	}
+	
+	printf("\n");
+	
+	/* Close the file */
+	fclose(fp);
+	
+	/* Return success */
+	return EXIT_SUCCESS;
+}

@@ -25,9 +25,11 @@
 #include <pthread.h>
 /****************************** Macros  ***************************************/
 #define MAX 100
+#define PATH_MAX 100
+#define READ_MODE "r"
 /****************************** Functions  ***************************************/
 extern void textSearch();
-
+extern int fileSearch();
 
 
 #endif
