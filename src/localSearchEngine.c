@@ -34,7 +34,15 @@
 
 int main()
 {
+	int retval = 0;
+	
 	textSearch();
+	
+	retval = fileSearch();
+	if(retval)
+	{
+		return EXIT_FAILURE;
+	}
 
 	return EXIT_SUCCESS;			
 }
