@@ -23,7 +23,10 @@
 
 void textSearch()
 {
-	
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF) {
+    		continue;
+	}	
 	// add comments
 	FILE *fp;
 	FILE *files;
@@ -89,6 +92,11 @@ int fileSearch()
 	char buffer[MAX];
 	int read_len;
 	FILE *fp;
+	
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF) {
+    		continue;
+	}
 	
 	/* get file path from user */
 	printf("Enter the path of the file: ");

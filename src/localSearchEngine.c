@@ -40,12 +40,12 @@ int main()
 
 	while(choice != 3){
 		printf("1. To enter the file path and display the contents of the file.\n");
-		printf("2. To search for all the files containing matching string and display the file names.\n")
+		printf("2. To search for all the files containing matching string and display the file names.\n");
 		printf("3. Exit\n");
 		
 		printf("\n\nEnter your choice: ");
 		scanf("%d", &choice);
-		
+				
 		//Based on user's choice the switch loop will call the functions present in utility.c file
 		switch(choice){
 			
@@ -81,8 +81,11 @@ int main()
 													//the file until they enter a value other than Y
 				
 				break;
-				
-			case default:
+			
+			case 3:
+				break;
+							
+			default:
 				//When user enters an invalid choice
 				printf("Invalid choice!\n");
 				break;
