@@ -26,10 +26,10 @@
 #include <stdio.h> 
 #include <string.h> 
 #include <stdlib.h>
+#include <fcntl.h> 
 /****************************** Macros  ***************************************/
-#define MAX 100
-#define PATH_MAX 100
-#define READ_MODE "r"
+#define MAX_BUFF 100
+#define MAX_PATH 100
 /****************************** Functions  ***************************************/
 
 extern GSList *list;
@@ -37,5 +37,6 @@ extern GSList *list;
 extern GSList* textSearch();
 extern int fileSearch();
 extern void populatePaths(char* base_path,char* result, char* path);
+extern int searchList(GSList *wordMatch);
 
 #endif

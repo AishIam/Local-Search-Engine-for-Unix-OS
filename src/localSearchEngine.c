@@ -37,6 +37,7 @@ int main()
 	char *path = NULL;
 	char temp[MAXPATHLEN]; 
 	char *base_path = NULL;
+	GSList *wordMatch = NULL;
 	path = (char*) malloc (sizeof(char) * MAXPATHLEN);
 	printf("Enter a Base Path :: ");
 	fgets(temp,MAXPATHLEN,stdin);
@@ -72,10 +73,13 @@ int main()
 				/*LSE / 01-2 -- searches for a given word/sentence/string through all the files in the local file system 
 				and list out all the files where a match was found.*/
 				
-				textSearch();
-				
+				wordMatch = textSearch();
+
 				printf("\nDo you want to display the contents of any above listed file(Y/N)?\n");
 				scanf("%c", &ch);
+				
+				if(ch == 'y' || ch == 'Y')
+					searchList(wordMatch);
 				
 				
 				do{
