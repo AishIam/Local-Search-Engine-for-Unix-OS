@@ -71,7 +71,7 @@ GSList* textSearch()
 	int i = 0;
 	int count = 0;
 	char *string = NULL;
-	char temp[MAX];
+	char temp[MAX_BUFF];
 	GSList *wordMatch = NULL;	
 	FILE *files;	
 	// To clear out the \n from the stream
@@ -81,7 +81,7 @@ GSList* textSearch()
 	}
 
 	printf("\nEnter the String to be searched : ");
-	fgets(temp,MAX,stdin);
+	fgets(temp,MAX_BUFF,stdin);
 
 	string = (char*) malloc (strlen(temp) * sizeof(char));
 	strcpy(string,temp);
@@ -98,7 +98,7 @@ GSList* textSearch()
 		{
 			while(!feof(files))
 			{
-				fgets(temp,MAX,files);
+				fgets(temp,MAX_BUFF,files);
 				if(strstr(temp,string) != NULL)
 				{	
 					printf("\t%d  %s\n", count +1, (char*)g_slist_nth_data(list,i));
@@ -117,49 +117,46 @@ GSList* textSearch()
 	return (wordMatch);
 }
 
-int fileSearch()
+int fileSearch(char *file_path)
 {
 	/* local variables */
-	char file_path[PATH_MAX];
-	char buffer[MAX];
-	int read_len;
-	FILE *fp;
+	char buffer[MAX_BUFF];
+	int fd = 0;
+	int sz = 0;
 	
-	int c;
-	while ((c = getchar()) != '\n' && c != EOF) {
-    		continue;
-	}
+	//int c;
 	
-	/* get file path from user */
-	printf("Enter the path of the file: ");
-	fgets(file_path, PATH_MAX, stdin);
-	
-	/* remove \n from the file path */
-	read_len = strlen(file_path);
-	if(file_path[read_len - 1] == '\n')
-	{
-		file_path[read_len - 1] = '\0';
-	}
+	//while ((c = getchar()) != '\n' && c != EOF) {
+    	//	continue;
+	//}
 	
 	/* Open file specified by user in read mode */
-	fp = fopen(file_path, READ_MODE);
-	if(fp == NULL)
+	fd = open(file_path, O_RDONLY);
+	if(fd < 0)
 	{
-		fprintf(stderr, "\nCould not open file!"); //Error Handling
+		perror("\nCould not open file!"); //Error Handling
 		return EXIT_FAILURE;
 	}
 	
 	printf("\nFile contents are:\n--------------------------------\n");
-	/* Get lines from the file */
-	while(fgets(buffer, MAX, fp) != NULL)
+
+	sz = read(fd, buffer, MAX_BUFF);
+	buffer[sz] = '\0';
+	while(sz != 0)
 	{
 		printf("%s", buffer);
+		sz = read(fd, buffer, MAX_BUFF);
+		buffer[sz] = '\0';
 	}
 	
 	printf("\n");
 	
-	/* Close the file */
-	fclose(fp);
+	/* Close the file */	
+	if(close(fd) < 0)
+	{
+		perror("\nCould not close file!"); //Error Handling
+		return EXIT_FAILURE;
+	}
 	
 	/* Return success */
 	return EXIT_SUCCESS;
