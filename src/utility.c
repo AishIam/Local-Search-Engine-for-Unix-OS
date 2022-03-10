@@ -161,3 +161,17 @@ int fileSearch(char *file_path)
 	/* Return success */
 	return EXIT_SUCCESS;
 }
+
+int searchList(GSList *wordMatch)
+{
+	int op;
+	char *file_path;
+	
+	printf("\nEnter index of which file whose contents to be shown: ");
+	scanf("%d", &op);
+	
+	file_path =  (char *)g_slist_nth_data(wordMatch, op-1);
+	fileSearch(file_path);
+	
+	return EXIT_SUCCESS;
+}
