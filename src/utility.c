@@ -20,16 +20,69 @@
 
 #include <utility.h>
 
+int flag = 0;
+
+//GSList *filePaths = NULL;
+
+void populatePaths(char* base_path,char* result, char* path)
+{
+	DIR *d;
+  	struct dirent *dir;
+  	if(flag == 0)
+	{
+		flag = 1;
+		chdir(base_path);	
+	}	
+	d = opendir( "." );
+  	
+	if( d == NULL ) 
+	{
+   		 return;
+	}
+	while( ( dir = readdir( d ) ) ) {
+    		if( strcmp( dir->d_name, "." ) == 0 || 
+        	strcmp( dir->d_name, ".." ) == 0 )
+	{
+      		continue;
+	}
+
+	if( dir->d_type == DT_DIR )
+	{
+      		chdir( dir->d_name );
+      		populatePaths(base_path,result, path);
+      		chdir( ".." );
+	} 
+	else 
+	{
+		int l = 0;
+		getcwd( result, MAXPATHLEN );
+		if(path != NULL)
+			l = strlen(path);
+		snprintf(path+l,MAXPATHLEN - l,"%s/%s",result ,dir->d_name);
+		printf("%s\n",path);
+		//filePaths = g_slist_prepend(filePaths,path);
+		memset(path, 0, MAXPATHLEN);	
+    	}
+  }
+
+  closedir( d );
+}
 
 void textSearch()
 {
-	
 	// add comments
 	FILE *fp;
 	FILE *files;
 	char* x;
 	char *string = NULL;
 	char temp[MAX];
+	int count = 0;
+
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF) {
+    		continue;
+	}
+	
 	x = (char*) malloc (100 * sizeof(char));
 
 	printf("\nEnter the String to be searched : ");
@@ -52,6 +105,8 @@ void textSearch()
 	
 	printf("Files with string match are :: \n");
 
+	count = 1;
+
 	while(fgets(buff,10000,fp) != NULL)
 	{
 		buff[strcspn(buff, "\n")] = 0;
@@ -65,7 +120,8 @@ void textSearch()
 				fgets(temp,MAX,files);
 				if(strstr(temp,string) != NULL)
 				{	
-					printf("\t%s\n",buff);
+					printf("\t%d  %s\n", count,buff);
+					count++;
 					break;
 				}
 			}
@@ -89,6 +145,11 @@ int fileSearch()
 	char buffer[MAX];
 	int read_len;
 	FILE *fp;
+	
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF) {
+    		continue;
+	}
 	
 	/* get file path from user */
 	printf("Enter the path of the file: ");
