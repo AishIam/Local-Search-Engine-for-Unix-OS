@@ -17,12 +17,11 @@
 /*************************************************************************
                         HEADER FILES
 **************************************************************************/
-
 #include <utility.h>
 
 int flag = 0;
 
-//GSList *filePaths = NULL;
+GSList *list = NULL;
 
 void populatePaths(char* base_path,char* result, char* path)
 {
@@ -59,83 +58,63 @@ void populatePaths(char* base_path,char* result, char* path)
 		if(path != NULL)
 			l = strlen(path);
 		snprintf(path+l,MAXPATHLEN - l,"%s/%s",result ,dir->d_name);
-		printf("%s\n",path);
-		//filePaths = g_slist_prepend(filePaths,path);
+		list = g_slist_prepend(list,strdup(path));
 		memset(path, 0, MAXPATHLEN);	
     	}
   }
 
-  closedir( d );
+	closedir( d );
 }
 
-void textSearch()
+GSList* textSearch()
 {
-	// add comments
-	FILE *fp;
-	FILE *files;
-	char* x;
+	int i = 0;
+	int count = 0;
 	char *string = NULL;
 	char temp[MAX];
-	int count = 0;
-
+	GSList *wordMatch = NULL;	
+	FILE *files;	
+	// To clear out the \n from the stream
 	int c;
 	while ((c = getchar()) != '\n' && c != EOF) {
     		continue;
 	}
-	
-	x = (char*) malloc (100 * sizeof(char));
 
 	printf("\nEnter the String to be searched : ");
 	fgets(temp,MAX,stdin);
 
 	string = (char*) malloc (strlen(temp) * sizeof(char));
 	strcpy(string,temp);
-	
-	string[strcspn(string, "\n")] = 0;
-	sprintf(x,"find . -type f -name %c*%c > test.txt",34,34);
-	
-	if(system(x) != 0 )
-	{
-		printf("System call not possible\n");   //error file
-	}
 
-	char buff[10000];
-	
-	fp = fopen("test.txt","r+");
+	//Stripping the \n from the fgets().	
+	string[strcspn(string, "\n")] = 0;
 	
 	printf("Files with string match are :: \n");
 
-	count = 1;
-
-	while(fgets(buff,10000,fp) != NULL)
+	for(i = 0; i < g_slist_length(list); i++)
 	{
-		buff[strcspn(buff, "\n")] = 0;
-		
-		files = fopen(buff,"r+");
+		files = fopen((char*)g_slist_nth_data(list,i),"r");
 		if(files != NULL)
 		{
-		//	printf("%s",buff);
 			while(!feof(files))
 			{
 				fgets(temp,MAX,files);
 				if(strstr(temp,string) != NULL)
 				{	
-					printf("\t%d  %s\n", count,buff);
+					printf("\t%d  %s\n", count +1, (char*)g_slist_nth_data(list,i));
+					wordMatch = g_slist_prepend(wordMatch,strdup((char*)g_slist_nth_data(list,i)));
 					count++;
 					break;
 				}
 			}
 		}
-
-		fclose(files);
+		if(files != NULL)
+			fclose(files);
 	}
-		
-	fclose(fp);
-
-
+	printf("\n");		
 	free(string);
-	free(x);
-	printf("\n");
+
+	return (wordMatch);
 }
 
 int fileSearch()
