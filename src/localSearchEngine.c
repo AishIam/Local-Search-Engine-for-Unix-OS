@@ -53,8 +53,8 @@ int main()
 	for(int i = 0; i < g_slist_length(list); i++)
 	{
 		printf("item[%d] = %s\n", i+1 ,(char*)g_slist_nth_data(list,i));
-	}	
-	exit(EXIT_SUCCESS);
+	}
+	
 	while(choice != 3){
 		printf("1. To enter the file path and display the contents of the file.\n");
 		printf("2. To search for all the files containing matching string and display the file names.\n");

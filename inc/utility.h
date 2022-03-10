@@ -34,7 +34,7 @@
 
 extern GSList *list;
 
-extern void textSearch();
+extern GSList* textSearch();
 extern int fileSearch();
 extern void populatePaths(char* base_path,char* result, char* path);
 
