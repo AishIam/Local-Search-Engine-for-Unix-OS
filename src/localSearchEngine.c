@@ -74,25 +74,30 @@ int main()
 				and list out all the files where a match was found.*/
 				
 				wordMatch = textSearch();
-
-				printf("\nDo you want to display the contents of any above listed file(Y/N)?\n");
-				scanf("%c", &ch);
-				
-				if(ch == 'y' || ch == 'Y')
-					searchList(wordMatch);
-				
-				
-				do{
-					/*LSE / 01-4 --  to display the contents of the file when the user chooses a particular file from the 
-					listing of the files provided as a sucess to search for a particular word/pattern/sentence. */
-					
-					//function 4 will be called
-					
-					printf("\nDo you want to display the contents of any above listed file(Y/N)? \n");
+				if(g_slist_length(wordMatch) != 0)
+				{
+					printf("\nDo you want to display the contents of any above listed file(Y/N)?\n");
 					scanf("%c", &ch);
+				
+					if(ch == 'y' || ch == 'Y')
+						searchList(wordMatch);
+				
+				
+					do{
+						/*LSE / 01-4 --  to display the contents of the file when the user chooses a particular file from the 
+						listing of the files provided as a sucess to search for a particular word/pattern/sentence. */
 					
-				} while(ch == 'Y' || ch == 'y');   //do-while loop will run and the users can view the contents of 
-													//the file until they enter a value other than Y
+						//function 4 will be called
+						
+						printf("\nDo you want to display the contents of any above listed file(Y/N)? \n");
+						scanf("%c", &ch);
+					
+					} while(ch == 'Y' || ch == 'y');   //do-while loop will run and the users can view the contents of 
+				}						//the file until they enter a value other than Y
+				else
+				{
+					printf("\nNo match found !! \n");											
+				}
 				
 				break;
 			
