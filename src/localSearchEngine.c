@@ -34,6 +34,13 @@
 
 int main()
 {
+	char result[MAXPATHLEN] = {0};
+	char *path = NULL; 
+	char *base_path = (char*) malloc (MAXPATHLEN * sizeof(char));
+	path = (char*) malloc (sizeof(char) * MAXPATHLEN);
+	strcpy(base_path,".");
+	populatePaths(base_path,result,path);
+exit(EXIT_SUCCESS);
 	int retval = 0;
 	int choice = 0;
 	char ch;
@@ -50,7 +57,7 @@ int main()
 		switch(choice){
 			
 			case 1:
-				//LSE / 01-3 -- searches for a particular file, when the absolute path of the file is provided and display the contents of that file.
+				//LSE / 01-3 -- search`es for a particular file, when the absolute path of the file is provided and display the contents of that file.
 				retval = fileSearch();
 				
 				if(retval){
