@@ -33,7 +33,6 @@
 
 int main()
 {
-	int i = 0;
 	char result[MAXPATHLEN] = {0};
 	char *path = NULL;
 	char temp[MAXPATHLEN]; 
@@ -49,12 +48,6 @@ int main()
 	int retval = 0;
 	int choice = 0;
 	char ch;
-	
-	for(int i = 0; i < g_slist_length(list); i++)
-	{
-		printf("item[%d] = %s\n", i+1 ,(char*)g_slist_nth_data(list,i));
-	}
-	
 	while(choice != 3){
 		printf("1. To enter the file path and display the contents of the file.\n");
 		printf("2. To search for all the files containing matching string and display the file names.\n");
@@ -91,7 +84,7 @@ int main()
 					
 					//function 4 will be called
 					
-					printf("\nDo you want to display the contents of any above listed file again(Y/N)?\n");
+					printf("\nDo you want to display the contents of any above listed file(Y/N)? \n");
 					scanf("%c", &ch);
 					
 				} while(ch == 'Y' || ch == 'y');   //do-while loop will run and the users can view the contents of 
