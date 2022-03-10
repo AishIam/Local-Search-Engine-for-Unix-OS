@@ -31,7 +31,7 @@ void populatePaths(char* base_path,char* result, char* path)
 	{
 		flag = 1;
 		if(chdir(base_path) != 0)
-			perror("\nWrong Base Path !!!\n");	
+			printf("\nWrong Base Path !!!\nStaring with default Base\n");	
 	}	
 	d = opendir( "." );
   	
