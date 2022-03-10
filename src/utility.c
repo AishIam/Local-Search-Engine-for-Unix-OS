@@ -17,12 +17,11 @@
 /*************************************************************************
                         HEADER FILES
 **************************************************************************/
-
 #include <utility.h>
 
 int flag = 0;
 
-//GSList *filePaths = NULL;
+GSList *list = NULL;
 
 void populatePaths(char* base_path,char* result, char* path)
 {
@@ -59,13 +58,12 @@ void populatePaths(char* base_path,char* result, char* path)
 		if(path != NULL)
 			l = strlen(path);
 		snprintf(path+l,MAXPATHLEN - l,"%s/%s",result ,dir->d_name);
-		printf("%s\n",path);
-		//filePaths = g_slist_prepend(filePaths,path);
+		list = g_slist_prepend(list,strdup(path));
 		memset(path, 0, MAXPATHLEN);	
     	}
   }
 
-  closedir( d );
+	closedir( d );
 }
 
 void textSearch()

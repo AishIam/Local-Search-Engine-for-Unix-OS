@@ -17,6 +17,7 @@
 #define __UTILITY_H__
 
 /************************** Header Files **************************************/
+#include <glib.h>
 #include <dirent.h> 
 #include <sys/types.h> 
 #include <sys/param.h> 
@@ -25,12 +26,13 @@
 #include <stdio.h> 
 #include <string.h> 
 #include <stdlib.h>
-#include <glib.h>
 /****************************** Macros  ***************************************/
 #define MAX 100
 #define PATH_MAX 100
 #define READ_MODE "r"
 /****************************** Functions  ***************************************/
+
+extern GSList *list;
 
 extern void textSearch();
 extern int fileSearch();

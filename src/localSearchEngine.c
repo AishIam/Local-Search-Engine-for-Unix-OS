@@ -17,7 +17,6 @@
 /*************************************************************************
                         HEADER FILES
 **************************************************************************/
-
 #include <utility.h>
 
 /*********************************************************************************************************
@@ -34,12 +33,15 @@
 
 int main()
 {
+	int i = 0;
 	char result[MAXPATHLEN] = {0};
 	char *path = NULL; 
 	char *base_path = (char*) malloc (MAXPATHLEN * sizeof(char));
 	path = (char*) malloc (sizeof(char) * MAXPATHLEN);
 	strcpy(base_path,".");
 	populatePaths(base_path,result,path);
+
+	
 exit(EXIT_SUCCESS);
 	int retval = 0;
 	int choice = 0;
