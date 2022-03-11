@@ -37,13 +37,17 @@ int main()
 	char *path = NULL;
 	char temp[MAXPATHLEN];
 	char *base_path = NULL;
+	char word[MAXPATHLEN];
+	char *string = NULL;
 	
 	char absolute_file_path[MAXPATHLEN];
 	char *file_path = NULL;
+	char *file_path1 = NULL;
 	
 	int retval = 0;
 	int choice = 0;
 	char ch;
+	int op = 0;
 	
 	//GSlist initialized where file paths will be stored
 	GSList *wordMatch = NULL;
@@ -125,8 +129,15 @@ int main()
 				/*LSE / 01-2 -- searches for a given word/sentence/string through all the files in the local file system 
 				and list out all the files where a match was found.*/
 				
-				wordMatch = textSearch();
+				printf("\nEnter the String to be searched : ");
+				fgets(word,MAX_BUFF,stdin);
+
+				string = (char*) malloc (strlen(word) * sizeof(char));
+				strcpy(string,word);
 				
+				wordMatch = textSearch(string);
+				
+				free(string);
 				//checking if GSList is empty or not. If it's empty then there was no match found for word/string entered by the user in the files inside basepath.
 				if(g_slist_length(wordMatch) != 0)
 				{
@@ -144,19 +155,31 @@ int main()
 					while(ch == 'Y' || ch == 'y'){
 						/*LSE / 01-4 --  to display the contents of the file when the user chooses a particular file from the 
 						listing of the files provided as a sucess to search for a particular word/pattern/sentence. */
-					
-						searchList(wordMatch);
 						
-						fflush(stdin);
+						/* loop to repeat menu if index is wrong */
+						while(file_path1 == NULL)
+						{
+							/* get index from user */
+							printf("\nEnter index of the file whose contents you want to view: ");
+							scanf("%d", &op);
+							
+							file_path1 = searchList(wordMatch,op);
 						
-						printf("\nDo you want to display the contents of any above listed file again(Y/N)?: ");
-						scanf("%c", &ch);
-					
+							if(file_path1 == NULL)
+							{
+								printf("\nIndex entered is wrong! Please try again!");
+							}
+						}
+						
 						// To clear out the \n from the stream
 						int c;
 						while ((c = getchar()) != '\n' && c != EOF) {
     							continue;
 						}
+						file_path1 = NULL;
+						printf("\nDo you want to display the contents of any above listed file again(Y/N)?: ");
+						scanf("%c", &ch);
+						
 					}     
 				}										
 				else
@@ -182,7 +205,7 @@ int main()
 	
 	g_slist_free(list);
 	g_slist_free(wordMatch);	
-		
+	free(file_path1);
 	return EXIT_SUCCESS;				
 }
 
