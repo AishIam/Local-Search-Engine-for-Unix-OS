@@ -32,8 +32,8 @@
 /****************************** Test Function Prototypes ***************************************/
 
 //for [LSE]\01-1
-extern void Mytestfunction_populatePaths(void);     //--change comment //if the files containing text are found
-extern void Mytestfunction_populatePaths2(void);	//if files containing the text are not found
+extern void Mytestfunction_populatePaths(void);   //if the base path is provided by the user  
+extern void Mytestfunction_populatePaths2(void);	//if the base path is not provided by the user or it is incorrect
 
 //for [LSE]/01-2
 extern void Mytestfunction_textSeach(void);      //if the files containing text are found
@@ -45,6 +45,6 @@ extern void Mytestfunction_fileSearch2(void);    //if file name/location is not 
 
 //for [LSE]/01-4
 extern void Mytestfunction_searchList(void);           //if correct file name/location is provided then display contents
-extern void Mytestfunction_searchList(void);			//if incorrect file name/location is provided.
+extern void Mytestfunction_searchList2(void);			//if incorrect file name/location is provided.
 
 #endif
