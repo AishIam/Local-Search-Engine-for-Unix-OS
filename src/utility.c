@@ -41,7 +41,8 @@ void populatePaths(char* base_path,char* result, char* path)
 {
 	DIR *d;
   	struct dirent *dir;
-  	if(flag == 0)
+  	/*Switching to base path on the first pass in the function, since it a recursive function*/
+	if(flag == 0)
 	{
 		flag = 1;
 		if(chdir(base_path) != 0){
@@ -54,6 +55,7 @@ void populatePaths(char* base_path,char* result, char* path)
 	{
    		 return;
 	}
+	/*Every directory has . and .. files as default and those are not file but are just pointers to parent and present dir so skipping over them.*/
 	while( ( dir = readdir( d ) ) ) {
     		if( strcmp( dir->d_name, "." ) == 0 || 
         	strcmp( dir->d_name, ".." ) == 0 )
@@ -99,17 +101,13 @@ void populatePaths(char* base_path,char* result, char* path)
 
 GSList* textSearch()
 {
+	/*Declaration*/
 	int i = 0;
 	int count = 0;
 	char *string = NULL;
 	char temp[MAX_BUFF];
 	GSList *wordMatch = NULL;	
 	FILE *files;	
-	// To clear out the \n from the stream
-	int c;
-	while ((c = getchar()) != '\n' && c != EOF) {
-    		continue;
-	}
 
 	printf("\nEnter the String to be searched : ");
 	fgets(temp,MAX_BUFF,stdin);
@@ -123,7 +121,7 @@ GSList* textSearch()
 	printf("Files with string match are :: \n");
 
 	for(i = 0; i < g_slist_length(list); i++)
-	{
+	{	//Getting File path from the populated file directory.
 		files = fopen((char*)g_slist_nth_data(list,i),"r");
 		if(files != NULL)
 		{
