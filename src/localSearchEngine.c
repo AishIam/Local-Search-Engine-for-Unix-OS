@@ -86,6 +86,12 @@ int main()
 		
 		printf("\n\nEnter your choice: ");
 		scanf("%d", &choice);
+		
+		// To clear out the \n from the stream
+		int c;
+		while ((c = getchar()) != '\n' && c != EOF) {
+    			continue;
+		}
 				
 		//Based on user's choice the switch loop will call the functions present in utility.c file
 		switch(choice){
@@ -97,6 +103,8 @@ int main()
 				fgets(absolute_file_path, MAXPATHLEN, stdin);
 				
 				file_path = (char*) malloc (strlen(absolute_file_path) * sizeof(char));
+				strcpy(file_path,absolute_file_path);
+				file_path[strcspn(file_path, "\n")] = 0;
 				fileSearch(file_path);
 				
 				if(retval){
