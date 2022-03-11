@@ -83,7 +83,9 @@ int main()
 	
 	//LSE / 01-1 -- populating the GSList with all the sub file paths present inside the base path
 	populatePaths(base_path,result,path);
-	
+	free(base_path);	
+	free(path);	
+
 	while(choice != 3){
 		
 		//LSE / 01-6 -- Menu driven console user interface
@@ -113,7 +115,7 @@ int main()
 				strcpy(file_path,absolute_file_path);
 				file_path[strcspn(file_path, "\n")] = 0;
 				fileSearch(file_path);
-				
+				free(file_path);
 				if(retval){
 					printf("\nSome error occurred!"); // should be changed -- error file
 				}
@@ -136,6 +138,7 @@ int main()
 					while ((c = getchar()) != '\n' && c != EOF) {
     						continue;
 					}
+							
 						
 					//while loop will run and the users can view the contents of the file until they enter a value other than Y
 					while(ch == 'Y' || ch == 'y'){
@@ -176,7 +179,11 @@ int main()
 	}
 	
 	printf("\n\n----------------------------------------- EXITING LOCAL SEARCH ENGINE -----------------------------------------------\n\n");
-	return EXIT_SUCCESS;			
+	
+	g_slist_free(list);
+	g_slist_free(wordMatch);	
+		
+	return EXIT_SUCCESS;				
 }
 
 

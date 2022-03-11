@@ -1,0 +1,191 @@
+../inc/utility.h:20: Include file <dirent.h> matches the name of a POSIX
+    library, but the POSIX library is not being used.  Consider using +posixlib
+    or +posixstrictlib to select the POSIX library, or -warnposix to suppress
+    this message.
+  Header name matches a POSIX header, but the POSIX library is not selected.
+  (Use -warnposixheaders to inhibit warning)
+../inc/utility.h:21: Include file <sys/types.h> matches the name of a POSIX
+    library, but the POSIX library is not being used.  Consider using +posixlib
+    or +posixstrictlib to select the POSIX library, or -warnposix to suppress
+    this message.
+../inc/utility.h:23: Include file <sys/stat.h> matches the name of a POSIX
+    library, but the POSIX library is not being used.  Consider using +posixlib
+    or +posixstrictlib to select the POSIX library, or -warnposix to suppress
+    this message.
+../inc/utility.h:24: Include file <unistd.h> matches the name of a POSIX
+    library, but the POSIX library is not being used.  Consider using +posixlib
+    or +posixstrictlib to select the POSIX library, or -warnposix to suppress
+    this message.
+../inc/utility.h:28: Include file <fcntl.h> matches the name of a POSIX
+    library, but the POSIX library is not being used.  Consider using +posixlib
+    or +posixstrictlib to select the POSIX library, or -warnposix to suppress
+    this message.
+< Location unknown >: Field name reused: 
+  Code cannot be parsed.  For help on parse errors, see splint -help
+  parseerrors. (Use -syntax to inhibit warning)
+< Location unknown >: Previous use of 
+../src/localSearchEngine.c: (in function main)
+../src/localSearchEngine.c:36:14: Unrecognized identifier: MAXPATHLEN
+  Identifier used in code has not been declared. (Use -unrecog to inhibit
+  warning)
+../src/localSearchEngine.c:36:29: Initial value of result[0] is type int,
+                                     expects char: 0
+  Types are incompatible. (Use -type to inhibit warning)
+../src/localSearchEngine.c:55:2: Return value (type int) ignored:
+                                    scanf("%c", &ch)
+  Result returned by function call is not used. If this is intended, can cast
+  result to (void) to eliminate message. (Use -retvalint to inhibit warning)
+../src/localSearchEngine.c:59:9: Operands of != have incompatible types (int,
+                                    char): (c = getchar()) != '\n'
+  A character constant is used as an int. Use +charintliteral to allow
+  character constants to be used as ints.  (This is safe since the actual type
+  of a char constant is int.)
+../src/localSearchEngine.c:67:3: Return value (type char *) ignored:
+                                    fgets(temp, MAXP...
+  Result returned by function call is not used. If this is intended, can cast
+  result to (void) to eliminate message. (Use -retvalother to inhibit warning)
+../src/localSearchEngine.c:73:10: Possibly null storage base_path passed as
+                                     non-null param: strcpy (base_path, ...)
+  A possibly null pointer is passed as a parameter corresponding to a formal
+  parameter with no /*@null@*/ annotation.  If NULL may be used for this
+  parameter, add a /*@null@*/ annotation to the function parameter declaration.
+  (Use -nullpass to inhibit warning)
+   ../src/localSearchEngine.c:70:15: Storage base_path may become null
+../src/localSearchEngine.c:76:3: Assignment of int to char:
+                                    base_path[strcspn(base_path, "\n")] = 0
+../src/localSearchEngine.c:81:10: Possibly null storage base_path passed as
+                                     non-null param: strcpy (base_path, ...)
+   ../src/localSearchEngine.c:80:15: Storage base_path may become null
+../src/localSearchEngine.c:85:33: Possibly null storage path passed as non-null
+                                     param: populatePaths (..., path)
+   ../src/localSearchEngine.c:50:9: Storage path may become null
+../src/localSearchEngine.c:85:33: Passed storage path not completely defined
+    (*path is undefined): populatePaths (..., path)
+  Storage derivable from a parameter, return value or global is not defined.
+  Use /*@out@*/ to denote passed or returned storage which need not be defined.
+  (Use -compdef to inhibit warning)
+   ../src/localSearchEngine.c:50:2: Storage *path allocated
+../src/localSearchEngine.c:95:3: Return value (type int) ignored:
+                                    scanf("%d", &choice)
+../src/localSearchEngine.c:98:7: Variable c shadows outer declaration
+  An outer declaration is shadowed by the local declaration. (Use -shadow to
+  inhibit warning)
+   ../src/localSearchEngine.c:58:6: Previous definition of c: int
+../src/localSearchEngine.c:99:10: Operands of != have incompatible types (int,
+                                     char): (c = getchar()) != '\n'
+../src/localSearchEngine.c:110:5: Return value (type char *) ignored:
+                                     fgets(absolute_f...
+../src/localSearchEngine.c:113:12: Possibly null storage file_path passed as
+                                      non-null param: strcpy (file_path, ...)
+   ../src/localSearchEngine.c:112:17: Storage file_path may become null
+../src/localSearchEngine.c:114:5: Assignment of int to char:
+                                     file_path[strcspn(file_path, "\n")] = 0
+../src/localSearchEngine.c:115:5: Return value (type int) ignored:
+                                     fileSearch(file_...
+../src/localSearchEngine.c:117:8: Test expression for if not boolean, type int:
+                                     retval
+  Test expression type is not boolean or int. (Use -predboolint to inhibit
+  warning)
+../src/localSearchEngine.c:132:6: Return value (type int) ignored:
+                                     scanf("%c", &ch)
+../src/localSearchEngine.c:135:10: Variable c shadows outer declaration
+   ../src/localSearchEngine.c:98:7: Previous definition of c: int
+../src/localSearchEngine.c:136:13: Operands of != have incompatible types (int,
+                                      char): (c = getchar()) != '\n'
+../src/localSearchEngine.c:145:7: Return value (type int) ignored:
+                                     searchList(wordM...
+../src/localSearchEngine.c:147:7: Return value (type int) ignored:
+                                     fflush(stdin)
+../src/localSearchEngine.c:150:7: Return value (type int) ignored:
+                                     scanf("%c", &ch)
+../src/localSearchEngine.c:153:11: Variable c shadows outer declaration
+   ../src/localSearchEngine.c:135:10: Previous definition of c: int
+../src/localSearchEngine.c:154:14: Operands of != have incompatible types (int,
+                                      char): (c = getchar()) != '\n'
+../src/localSearchEngine.c:179:22: Fresh storage path not released before
+                                      return
+  A memory leak has been detected. Storage allocated locally is not released
+  before the last reference to it is lost. (Use -mustfreefresh to inhibit
+  warning)
+   ../src/localSearchEngine.c:50:2: Fresh storage path created
+../src/localSearchEngine.c:179:22: Fresh storage base_path not released before
+                                      return
+   ../src/localSearchEngine.c:80:3: Fresh storage base_path created
+< Location unknown >: Field name reused: 
+< Location unknown >: Previous use of 
+../src/utility.c:38:16: Global list initialized to null value: list = NULL
+  A reference with no null annotation is assigned or initialized to NULL.  Use
+  /*@null@*/ to declare the reference as a possibly null pointer. (Use
+  -nullassign to inhibit warning)
+../src/utility.c:38:16: Global list initialized to null value:
+                           GSList * list = NULL = NULL
+../src/utility.c: (in function populatePaths)
+../src/utility.c:66:6: Operands of == have incompatible types (unsigned char,
+    enum { DT_UNKNOWN, DT_FIFO, DT_CHR, ..., DT_WHT }): dir->d_type == DT_DIR
+  To make char and int types equivalent, use +charint.
+../src/utility.c:68:9: Return value (type int) ignored: chdir(dir->d_name)
+../src/utility.c:70:9: Return value (type int) ignored: chdir("..")
+../src/utility.c:75:3: Return value (type char *) ignored: getcwd(result, M...
+../src/utility.c:77:4: Assignment of size_t to int: l = strlen(path)
+  To allow arbitrary integral types to match any integral type, use
+  +matchanyintegral.
+../src/utility.c:78:3: Return value (type int) ignored: snprintf(path + ...
+../src/utility.c:79:31: Unrecognized identifier: strdup
+../src/utility.c:80:10: Possibly null storage path passed as non-null param:
+                           memset (path, ...)
+../src/utility.c:84:2: Return value (type int) ignored: closedir(d)
+../src/utility.c:85:2: Fresh storage d not released before return
+   ../src/utility.c:52:2: Fresh storage d created
+../src/utility.c: (in function textSearch)
+../src/utility.c:113:2: Return value (type char *) ignored: fgets(temp, 100,...
+../src/utility.c:116:9: Possibly null storage string passed as non-null param:
+                           strcpy (string, ...)
+   ../src/utility.c:115:11: Storage string may become null
+../src/utility.c:119:2: Assignment of int to char:
+                           string[strcspn(string, "\n")] = 0
+../src/utility.c:123:13: Operands of < have incompatible types (int, guint):
+                            i < g_slist_length(list)
+../src/utility.c:125:46: Function g_slist_nth_data expects arg 2 to be guint
+                            gets int: i
+../src/utility.c:125:17: New fresh storage (type char *) passed as implicitly
+    temp (not released): (char *)g_slist_nth_data(list, i)
+../src/utility.c:128:11: Operand of ! is non-boolean (int): !feof(files)
+  The operand of a boolean operator is not a boolean. Use +ptrnegate to allow !
+  to be used on pointers. (Use -boolops to inhibit warning)
+../src/utility.c:130:5: Return value (type char *) ignored: fgets(temp, 100,...
+../src/utility.c:133:66: Function g_slist_nth_data expects arg 2 to be guint
+                            gets int: i
+../src/utility.c:133:37: New fresh storage (type char *) passed as implicitly
+    temp (not released): (char *)g_slist_nth_data(list, i)
+../src/utility.c:134:80: Function g_slist_nth_data expects arg 2 to be guint
+                            gets int: i
+../src/utility.c:134:34: Null storage wordMatch passed as non-null param:
+                            g_slist_prepend (wordMatch, ...)
+   ../src/utility.c:109:22: Storage wordMatch becomes null
+../src/utility.c:141:4: Return value (type int) ignored: fclose(files)
+../src/utility.c:146:9: Null storage wordMatch returned as non-null:
+                           (wordMatch)
+  Function returns a possibly null pointer, but is not declared using
+  /*@null@*/ annotation of result.  If function may return NULL, add /*@null@*/
+  annotation to the return value declaration. (Use -nullret to inhibit warning)
+   ../src/utility.c:109:22: Storage wordMatch becomes null
+../src/utility.c: (in function fileSearch)
+../src/utility.c:180:16: Passed storage buffer not completely defined (*buffer
+                            is undefined): read (..., buffer, ...)
+../src/utility.c:180:2: Assignment of ssize_t to int:
+                           sz = read(fd, buffer, 100)
+../src/utility.c:189:3: Assignment of ssize_t to int:
+                           sz = read(fd, buffer, 100)
+../src/utility.c: (in function searchList)
+../src/utility.c:232:3: Return value (type int) ignored: scanf("%d", &op)
+../src/utility.c:235:3: Assignment of guint to int:
+                           len = g_slist_length(wordMatch)
+../src/utility.c:238:52: Function g_slist_nth_data expects arg 2 to be guint
+                            gets int: len - op
+../src/utility.c:248:2: Return value (type int) ignored: fileSearch(file_...
+../inc/utility.h:35:16: Variable exported but not used outside utility: list
+  A declaration is exported, but not used outside this module. Declaration can
+  use static qualifier. (Use -exportlocal to inhibit warning)
+   ../src/utility.c:38:9: Definition of list
+../src/utility.c:36:5: Variable exported but not used outside utility: flag
+

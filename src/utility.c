@@ -41,8 +41,8 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 {
 	DIR *d;
   	struct dirent *dir;
-  	/*Switching to base path on the first pass in the function, since it a recursive function*/
-	if(flag == 0)
+	/*Switching to base path on the first pass in the function, since it a recursive function*/
+	if(flag == 0 && strcmp(base_path,"."))
 	{
 		flag = 1;
 		if(chdir(base_path) != 0){
@@ -60,7 +60,7 @@ GSList* populatePaths(char* base_path,char* result, char* path)
     		if( strcmp( dir->d_name, "." ) == 0 || 
         	strcmp( dir->d_name, ".." ) == 0 )
 			{
-      			continue;
+      				continue;
 			}
 
 	if( dir->d_type == DT_DIR )
@@ -81,7 +81,6 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 		memset(path, 0, MAXPATHLEN);	
     	}
   }
-
 	closedir( d );
 }
 
@@ -143,7 +142,6 @@ GSList* textSearch()
 	}
 	printf("\n");		
 	free(string);
-
 	return (wordMatch);
 }
 
@@ -199,7 +197,6 @@ int fileSearch(char *file_path)
 		perror("\nCould not close file!"); //Error Handling
 		return EXIT_FAILURE;
 	}
-	
 	/* Return success */
 	return EXIT_SUCCESS;
 }
@@ -234,9 +231,8 @@ int searchList(GSList *wordMatch)
 		
 		/* length of the list */
 		len = g_slist_length(wordMatch);
-		
+		file_path = (char *)g_slist_nth_data(wordMatch, len-op);	
 		/* get the word at the index */
-		file_path =  (char *)g_slist_nth_data(wordMatch, len-op);
 		
 		/* error message if index given by user is wrong */
 		if(file_path == NULL)

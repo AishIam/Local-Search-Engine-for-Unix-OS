@@ -1,3 +1,0 @@
-localSearchEngine.c:20:22: Cannot find include file utility.h on search path:
-                              /usr/include/x86_64-linux-gnu;/usr/include
-  Preprocessing error. (Use -preproc to inhibit warning)
