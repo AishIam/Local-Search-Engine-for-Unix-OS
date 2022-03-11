@@ -20,10 +20,12 @@
 #include <lse_test_functions.h>
 
 //for populating through basepath
-GSList *list_func = NULL;
+GSList *list = NULL; //test for populating
+GSList *list_func = NULL;  //utility func
 
 //for word match
-GSList *list_match = NULL;
+GSList *list3 = NULL;  //test  for matching
+GSList *list_match = NULL;   //utility func
 
 /*********************************************************************************************************
 **     FUNCTION NAME       :    Mytestfunction_populatePaths
@@ -41,7 +43,6 @@ GSList *list_match = NULL;
 void Mytestfunction_populatePaths(void){
 	
 	//GSlist initialized where file paths will be stored
-	GSList *list = NULL;
 	char result[MAXPATHLEN] = {0};
 	char *path = NULL;
 	int len1 = 0;
@@ -52,26 +53,22 @@ void Mytestfunction_populatePaths(void){
 	
 	path = (char*) malloc (sizeof(char) * MAXPATHLEN);
 	
-	//11 paths
+	//7 paths
 	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/list_error.c");
-	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/bin/final");
-	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/bin/output.png");
-	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/bin/final");
-	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/bin/output.png");
 	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/include/header.h");
 	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/include/header.h.gch");
-	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/make/makefile");
-	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/obj/function.o");
-	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/obj/main.o");
 	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/src/function.c");
+	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/src/main.c");
+	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/inc/utility.h");
+	list = g_slist_prepend(list,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/src/.utility.c.swp");
 	
 	list_func = populatePaths(base_path,result,path);
 	len1 = g_slist_length(list);
 	len2 = g_slist_length(list_func);
 	
 	if(list_func != NULL){
-		for(i = 1; i < 12; i++){
-			int val = strcmp(g_slist_nth_data(list,len1-i), g_slist_nth_data(list_func, len2-i))
+		for(i = 1; i < 8; i++){
+			int val = strcmp((char*)g_slist_nth_data(list,len1-i), (char*)g_slist_nth_data(list_func, len2-i))
 			CU_ASSERT(val == 0);
 			if(val != 0){
 				printf("\n1 - Both lists are not same\n");
@@ -122,7 +119,7 @@ void Mytestfunction_populatePaths2(void){
 	
 	if(list_func != NULL){
 		for(i = 1; i <= len1; i++){
-			int val = strcmp(g_slist_nth_data(list2,len1-i), g_slist_nth_data(list_func2, len2-i))
+			int val = strcmp((char*)g_slist_nth_data(list2,len1-i), (char*)g_slist_nth_data(list_func2, len2-i))
 			CU_ASSERT(val == 0);
 			if(val != 0){
 				printf("\n2 - Both lists are not same\n");
@@ -147,49 +144,28 @@ void Mytestfunction_populatePaths2(void){
 
 void Mytestfunction_textSeach(void){
 	
-	GSList *list3 = NULL;
 	char *string = "list";
 	int i = 0;
 	int count = 0;
 	int len1 = 0;
 	int len2 = 0;
-	FILE *files;
-	char temp[MAX_BUFF];
+	
 	
 	list3 = g_slist_prepend(list3,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/mylistmain.c");
 	list3 = g_slist_prepend(list3,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/mylistfunctions.c");
 	list3 = g_slist_prepend(list3,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/src/utility.c");
-	list3 = g_slist_prepend(list3,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/obj/main.o");
 	list3 = g_slist_prepend(list3,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/src/function.c");
 	list3 = g_slist_prepend(list3,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/Binary_Search/include/header.h.gch");
 	list3 = g_slist_prepend(list3,"/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/list_error.c");
 	
-	for(i = 0; i < g_slist_length(list_func); i++)
-	{
-		files = fopen((char*)g_slist_nth_data(list_func,i),"r");
-		if(files != NULL)
-		{
-			while(!feof(files))
-			{
-				fgets(temp,MAX_BUFF,files);
-				if(strstr(temp,string) != NULL)
-				{	
-					list_match = g_slist_prepend(list_match,strdup((char*)g_slist_nth_data(list_func,i)));
-					count++;
-					break;
-				}
-			}
-		}
-		if(files != NULL)
-			fclose(files);
-	}
+	list_match = textSearch(list_func, string);
 	
 	len1 = g_slist_length(list3);
 	len2 = g_slist_length(list_match);
 	
 	if(list_func != NULL){
 		for(i = 1; i <= len1; i++){
-			int val = strcmp(g_slist_nth_data(list3,len1-i), g_slist_nth_data(list_match, len2-i))
+			int val = strcmp((char*)g_slist_nth_data(list3,len1-i), (char*)g_slist_nth_data(list_match, len2-i))
 			CU_ASSERT(val == 0);
 			if(val != 0){
 				printf("\n3 - Both lists are not same\n");
@@ -216,49 +192,25 @@ void Mytestfunction_textSeach(void){
 void Mytestfunction_textSeach(void){
 	
 	GSList *list_match2 = NULL;
-	
 	char *string = "golden";
 	int i = 0;
-	int count = 0;
+	
 	int len = 0;
 	
-	FILE *files;
-	char temp[MAX_BUFF];
-	
-	for(i = 0; i < g_slist_length(list_func); i++)
-	{
-		files = fopen((char*)g_slist_nth_data(list_func,i),"r");
-		if(files != NULL)
-		{
-			while(!feof(files))
-			{
-				fgets(temp,MAX_BUFF,files);
-				if(strstr(temp,string) != NULL)
-				{	
-					list_match2 = g_slist_prepend(list_match2,strdup((char*)g_slist_nth_data(list_func,i)));
-					count++;
-					break;
-				}
-			}
-		}
-		if(files != NULL)
-			fclose(files);
-	}
+	list_match2 = textSearch(list_func,string);
 	
 	len = g_slist_length(list_match2);
 	
 	CU_ASSERT(len == 0);
 	
-	if(len != 0){
-		printf("\n4 - List is not empty\n");
-	}
 	
 }
 
 /*********************************************************************************************************
 **     FUNCTION NAME       :    Mytestfunction_fileSearch
 **
-**     DESCRIPTION         :    
+**     DESCRIPTION         :    Function to test if our fileSearch function of utility.c is opening and displaying
+**								the file contents when user enters a valid path.
 **
 **     FUNCTION TAG        :    LSE/Test - 05
 **
@@ -266,10 +218,32 @@ void Mytestfunction_textSeach(void){
 **                               
 ***********************************************************************************************************/ 
 
+void Mytestfunction_fileSearch(void){
+	
+	char *filePath = "/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/mylistfunctions.c";
+	char buffer[MAX_BUFF];
+	int fd = 0;
+	int val = 0;
+	int val2 = 0;
+	
+	fd = open(file_path, O_RDONLY);
+	if(fd < 0)
+	{
+		val = -1;
+	}
+	
+	val2 = fileSearch(filePath);
+	
+	CU_ASSERT(val2 == val);
+	
+	close(fd);
+}
+
 /*********************************************************************************************************
 **     FUNCTION NAME       :    Mytestfunction_fileSearch2
 **
-**     DESCRIPTION         :    
+**     DESCRIPTION         :    Function to test if our fileSearch function of utility.c is not opening and displaying
+**								the any file contents when user enters an invalid path.
 **
 **     FUNCTION TAG        :    LSE/Test - 06
 **
@@ -277,10 +251,32 @@ void Mytestfunction_textSeach(void){
 **                               
 ***********************************************************************************************************/ 
 
+void Mytestfunction_fileSearch(void){
+	
+	char *filePath = "/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/wrong_file.c";
+	char buffer[MAX_BUFF];
+	int fd = 0;
+	int val = 0;
+	int val2 = 0;
+	
+	fd = open(file_path, O_RDONLY);
+	if(fd < 0)
+	{
+		val = -1;
+	}
+	
+	val2 = fileSearch(filePath);
+	
+	CU_ASSERT(val2 == val);
+	
+	close(fd);
+}
+
 /*********************************************************************************************************
 **     FUNCTION NAME       :    Mytestfunction_searchList
 **
-**     DESCRIPTION         :    
+**     DESCRIPTION         :    Function to test if right file is opened and displayed when user enters correct
+**								index to view the contents of a file. 
 **
 **     FUNCTION TAG        :    LSE/Test - 07
 **
@@ -288,13 +284,16 @@ void Mytestfunction_textSeach(void){
 **                               
 ***********************************************************************************************************/ 
 
-/*********************************************************************************************************
-**     FUNCTION NAME       :    Mytestfunction_searchList2
-**
-**     DESCRIPTION         :    
-**
-**     FUNCTION TAG        :    LSE/Test - 08
-**
-**     RETURNS             :    Return void.
-**                               
-***********************************************************************************************************/ 
+void Mytestfunction_searchList(void){
+	
+	int op = 3;
+	int len = 0;
+	char *file_path = "/mnt/c/Users/Aishwarya/Desktop/text_testing_folder/Merge_sort/src/utility.c";
+	char *file_path2 = NULL;
+	
+	file_path2 = searchList(list_match,op);
+	
+	CU_ASSERT(strcmp(file_path2,file_path) == 0);
+
+}
+

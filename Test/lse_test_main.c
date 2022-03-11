@@ -92,31 +92,25 @@ int main(int argc, char *argv[])
         return CU_get_error();
     }
     
-//    if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch_ID_5", Mytestfunction_fileSearch))
-//    {
-//       	CU_cleanup_registry();
-//        return CU_get_error();
-//    }
-//    
-//    if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch2_ID_6", Mytestfunction_fileSearch2))
-//    {
-//       	CU_cleanup_registry();
-//        return CU_get_error();
-//    }
-//    
-//   
-//    if(NULL == CU_add_test(pSuite,"Mytestfunction_searchList_ID_7", Mytestfunction_searchList1))
-//    {
-//        CU_cleanup_registry();
-//        return CU_get_error();
-//    }
-//    
-//    
-//    if(NULL == CU_add_test(pSuite,"Mytestfunction_searchList_ID_8", Mytestfunction_searchList2))
-//    {
-//        CU_cleanup_registry();
-//        return CU_get_error();
-//    }
+    if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch_ID_5", Mytestfunction_fileSearch))
+    {
+       	CU_cleanup_registry();
+        return CU_get_error();
+    }
+    
+    if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch2_ID_6", Mytestfunction_fileSearch2))
+    {
+       	CU_cleanup_registry();
+        return CU_get_error();
+    }
+    
+   
+    if(NULL == CU_add_test(pSuite,"Mytestfunction_searchList_ID_7", Mytestfunction_searchList))
+    {
+        CU_cleanup_registry();
+        return CU_get_error();
+    }
+    
 	
 
     /* Set the mode and  invoke test(s) */ 

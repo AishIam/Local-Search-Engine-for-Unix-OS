@@ -36,7 +36,7 @@ extern GSList *list;
 
 extern GSList* textSearch();
 extern int fileSearch();
-extern void populatePaths(char* base_path,char* result, char* path);
-extern int searchList(GSList *wordMatch);
+extern GSList* populatePaths(char* base_path,char* result, char* path);
+extern char* searchList(GSList *wordMatch);
 
 #endif

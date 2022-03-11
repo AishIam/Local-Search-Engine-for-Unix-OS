@@ -37,7 +37,7 @@ int flag = 0;
 
 GSList *list = NULL;
 
-void populatePaths(char* base_path,char* result, char* path)
+GSList* populatePaths(char* base_path,char* result, char* path)
 {
 	DIR *d;
   	struct dirent *dir;
@@ -86,6 +86,8 @@ void populatePaths(char* base_path,char* result, char* path)
     	}
   }
 	closedir( d );
+	
+	return list;
 }
 
 /*********************************************************************************************************
@@ -171,6 +173,7 @@ int fileSearch(char *file_path)
 	printf("\nfile path :: %s",file_path);	
 	/* Open file specified by user in read mode */
 	fd = open(file_path, O_RDONLY);
+	
 	if(fd < 0)
 	{
 		perror("\nCould not open file!"); //Error Handling
@@ -219,7 +222,7 @@ int fileSearch(char *file_path)
 **                               
 ***********************************************************************************************************/
 
-int searchList(GSList *wordMatch)
+char* searchList(GSList *wordMatch)
 {
 	/* local variables */
 	int op;
@@ -248,5 +251,5 @@ int searchList(GSList *wordMatch)
 	/* execute the function to display the contents */
 	fileSearch(file_path); 
 	
-	return EXIT_SUCCESS;
+	return file_path;
 }
