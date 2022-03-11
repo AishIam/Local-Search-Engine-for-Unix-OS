@@ -24,4 +24,10 @@ $(OBJ)/utility.o:$(SRC)/utility.c $(INC)/utility.h
 
 clean:
 	rm -f $(OBJ)/*.o
-	rm -f $(BIN)/string_prg 
+	rm -f $(BIN)/string_prg
+
+splint:
+	splint $(SRC)/localSearchEngine.c $(SRC)/utility.c $(IFLAGS) -DSPLINT_FLAG_ENABLED > splint_report	
+
+valgrind:
+	valgrind $(BIN)/main 2> valgrind_report
