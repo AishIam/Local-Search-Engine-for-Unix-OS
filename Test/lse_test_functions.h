@@ -45,6 +45,6 @@ extern void Mytestfunction_fileSearch2(void);    //if file name/location is not 
 
 //for [LSE]/01-4
 extern void Mytestfunction_searchList(void);           //if correct file name/location is provided then display contents
-extern void Mytestfunction_searchList2(void);			//if incorrect file name/location is provided.
+
 
 #endif
