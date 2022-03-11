@@ -53,7 +53,7 @@ GSList* populatePaths(char* base_path,char* result, char* path)
   	
 	if( d == NULL ) 
 	{
-   		 return;
+   		 return NULL;
 	}
 	/*Every directory has . and .. files as default and those are not file but are just pointers to parent and present dir so skipping over them.*/
 	while( ( dir = readdir( d ) ) ) {
@@ -79,7 +79,6 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 
 		{
 			snprintf(path+l,MAXPATHLEN - l,"%s/%s",result ,dir->d_name);
-			printf("%s\n",path);
 			list = g_slist_prepend(list,strdup(path));
 			memset(path, 0, MAXPATHLEN);
 		}	
@@ -105,21 +104,15 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 **
 ***********************************************************************************************************/
 
-GSList* textSearch()
+GSList* textSearch(char* str)
 {
 	/*Declaration*/
 	int i = 0;
 	int count = 0;
-	char *string = NULL;
+	char *string = str;
 	char temp[MAX_BUFF];
 	GSList *wordMatch = NULL;	
 	FILE *files;	
-
-	printf("\nEnter the String to be searched : ");
-	fgets(temp,MAX_BUFF,stdin);
-
-	string = (char*) malloc (strlen(temp) * sizeof(char));
-	strcpy(string,temp);
 
 	//Stripping the \n from the fgets().	
 	string[strcspn(string, "\n")] = 0;
@@ -147,7 +140,6 @@ GSList* textSearch()
 			fclose(files);
 	}
 	printf("\n");		
-	free(string);
 	return (wordMatch);
 }
 
@@ -222,32 +214,22 @@ int fileSearch(char *file_path)
 **                               
 ***********************************************************************************************************/
 
-char* searchList(GSList *wordMatch)
+char* searchList(GSList *wordMatch, int op)
 {
 	/* local variables */
-	int op;
 	char *file_path = NULL;
 	int len = 0;
 	
-	/* loop to repeat menu if index is wrong */
-	while(file_path == NULL)
-	{
-		/* get index from user */
-		printf("\nEnter index of the file whose contents you want to view: ");
-		scanf("%d", &op);
-		
-		/* length of the list */
-		len = g_slist_length(wordMatch);
-		file_path = (char *)g_slist_nth_data(wordMatch, len-op);	
-		/* get the word at the index */
-		
-		/* error message if index given by user is wrong */
-		if(file_path == NULL)
-		{
-			printf("\nIndex entered is wrong! Please try again!");
-		}
-	}
+	/*return len of the GSList*/
+	len = g_slist_length(wordMatch);
+	file_path = (char *)g_slist_nth_data(wordMatch, len-op);	
 	
+	if(file_path == NULL)
+	{
+		return NULL;
+	}
+		
+	/* error message if index given by user is wrong */
 	/* execute the function to display the contents */
 	fileSearch(file_path); 
 	
