@@ -37,7 +37,7 @@ int flag = 0;
 
 GSList *list = NULL;
 
-GSList* populatePaths(char* base_path,char* result, char* path)
+void populatePaths(char* base_path,char* result, char* path)
 {
 	DIR *d;
   	struct dirent *dir;
@@ -75,10 +75,14 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 		getcwd( result, MAXPATHLEN );
 		if(path != NULL)
 			l = strlen(path);
-		snprintf(path+l,MAXPATHLEN - l,"%s/%s",result ,dir->d_name);
-		printf("%s\n",path);
-		list = g_slist_prepend(list,strdup(path));
-		memset(path, 0, MAXPATHLEN);	
+		if((strstr(dir->d_name,".c\0") != NULL) || (strstr(dir->d_name,".h\0") != NULL) || (strstr(dir->d_name,".txt\0") != NULL))
+
+		{
+			snprintf(path+l,MAXPATHLEN - l,"%s/%s",result ,dir->d_name);
+			printf("%s\n",path);
+			list = g_slist_prepend(list,strdup(path));
+			memset(path, 0, MAXPATHLEN);
+		}	
     	}
   }
 	closedir( d );
