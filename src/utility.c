@@ -41,7 +41,8 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 {
 	DIR *d;
   	struct dirent *dir;
-  	if(flag == 0)
+  	/*Switching to base path on the first pass in the function, since it a recursive function*/
+	if(flag == 0)
 	{
 		flag = 1;
 		if(chdir(base_path) != 0){
@@ -54,6 +55,7 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 	{
    		 return;
 	}
+	/*Every directory has . and .. files as default and those are not file but are just pointers to parent and present dir so skipping over them.*/
 	while( ( dir = readdir( d ) ) ) {
     		if( strcmp( dir->d_name, "." ) == 0 || 
         	strcmp( dir->d_name, ".." ) == 0 )
@@ -100,17 +102,13 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 
 GSList* textSearch()
 {
+	/*Declaration*/
 	int i = 0;
 	int count = 0;
 	char *string = NULL;
 	char temp[MAX_BUFF];
 	GSList *wordMatch = NULL;	
 	FILE *files;	
-	// To clear out the \n from the stream
-	int c;
-	while ((c = getchar()) != '\n' && c != EOF) {
-    		continue;
-	}
 
 	printf("\nEnter the String to be searched : ");
 	fgets(temp,MAX_BUFF,stdin);
@@ -124,7 +122,7 @@ GSList* textSearch()
 	printf("Files with string match are :: \n");
 
 	for(i = 0; i < g_slist_length(list); i++)
-	{
+	{	//Getting File path from the populated file directory.
 		files = fopen((char*)g_slist_nth_data(list,i),"r");
 		if(files != NULL)
 		{
@@ -178,9 +176,14 @@ int fileSearch(char *file_path)
 	}
 	
 	printf("\nFile contents are:\n--------------------------------\n");
-
+	
+	/* Read from the file */
 	sz = read(fd, buffer, MAX_BUFF);
+	
+	/* Adding a null character to the buffer */
 	buffer[sz] = '\0';
+
+	/* Loop to keep reading from file till the end */
 	while(sz != 0)
 	{
 		printf("%s", buffer);
@@ -217,14 +220,33 @@ int fileSearch(char *file_path)
 
 int searchList(GSList *wordMatch)
 {
+	/* local variables */
 	int op;
-	char *file_path;
+	char *file_path = NULL;
+	int len = 0;
 	
-	printf("\nEnter index of the file whose contents you want to view: ");
-	scanf("%d", &op);
+	/* loop to repeat menu if index is wrong */
+	while(file_path == NULL)
+	{
+		/* get index from user */
+		printf("\nEnter index of the file whose contents you want to view: ");
+		scanf("%d", &op);
+		
+		/* length of the list */
+		len = g_slist_length(wordMatch);
+		
+		/* get the word at the index */
+		file_path =  (char *)g_slist_nth_data(wordMatch, len-op);
+		
+		/* error message if index given by user is wrong */
+		if(file_path == NULL)
+		{
+			printf("\nIndex entered is wrong! Please try again!");
+		}
+	}
 	
-	file_path =  (char *)g_slist_nth_data(wordMatch, op-1);
-	fileSearch(file_path);             //check if user enters wrong index and ask the user to try entering the right index again
+	/* execute the function to display the contents */
+	fileSearch(file_path); 
 	
 	return EXIT_SUCCESS;
 }
