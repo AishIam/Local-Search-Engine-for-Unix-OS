@@ -68,43 +68,55 @@ int main(int argc, char *argv[])
     
     //TODO: ADD COMMENTS AND MORE TEST RUNNERS IF NEEDED
     
-    if(NULL == CU_add_test(pSuite,"Mytestfunction_textSeach_ID_1", Mytestfunction_textSearch))
+    if(NULL == CU_add_test(pSuite,"Mytestfunction_populatePaths_ID_1", Mytestfunction_populatePaths))
     {
        	CU_cleanup_registry();
         return CU_get_error();
     }
     
-    if(NULL == CU_add_test(pSuite,"Mytestfunction_textSearch2_ID_2", Mytestfunction_textSearch2))
+    if(NULL == CU_add_test(pSuite,"Mytestfunction_populatePaths_ID_2", Mytestfunction_populatePaths2))
     {
        	CU_cleanup_registry();
         return CU_get_error();
     }
     
-    if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch_ID_3", Mytestfunction_fileSearch))
+    if(NULL == CU_add_test(pSuite,"Mytestfunction_textSeach_ID_3", Mytestfunction_textSearch))
     {
        	CU_cleanup_registry();
         return CU_get_error();
     }
     
-    if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch2_ID_4", Mytestfunction_fileSearch2))
+    if(NULL == CU_add_test(pSuite,"Mytestfunction_textSearch2_ID_4", Mytestfunction_textSearch2))
     {
        	CU_cleanup_registry();
         return CU_get_error();
     }
     
-   
-    if(NULL == CU_add_test(pSuite,"Mytestfunction_func_ID_5", Mytestfunction_func))
-    {
-        CU_cleanup_registry();
-        return CU_get_error();
-    }
-    
-    
-    if(NULL == CU_add_test(pSuite,"Mytestfunction_func_ID_6", Mytestfunction_func2))
-    {
-        CU_cleanup_registry();
-        return CU_get_error();
-    }
+//    if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch_ID_5", Mytestfunction_fileSearch))
+//    {
+//       	CU_cleanup_registry();
+//        return CU_get_error();
+//    }
+//    
+//    if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch2_ID_6", Mytestfunction_fileSearch2))
+//    {
+//       	CU_cleanup_registry();
+//        return CU_get_error();
+//    }
+//    
+//   
+//    if(NULL == CU_add_test(pSuite,"Mytestfunction_searchList_ID_7", Mytestfunction_searchList1))
+//    {
+//        CU_cleanup_registry();
+//        return CU_get_error();
+//    }
+//    
+//    
+//    if(NULL == CU_add_test(pSuite,"Mytestfunction_searchList_ID_8", Mytestfunction_searchList2))
+//    {
+//        CU_cleanup_registry();
+//        return CU_get_error();
+//    }
 	
 
     /* Set the mode and  invoke test(s) */ 
