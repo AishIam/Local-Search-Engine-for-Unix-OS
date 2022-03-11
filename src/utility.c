@@ -175,9 +175,14 @@ int fileSearch(char *file_path)
 	}
 	
 	printf("\nFile contents are:\n--------------------------------\n");
-
+	
+	/* Read from the file */
 	sz = read(fd, buffer, MAX_BUFF);
+	
+	/* Adding a null character to the buffer */
 	buffer[sz] = '\0';
+
+	/* Loop to keep reading from file till the end */
 	while(sz != 0)
 	{
 		printf("%s", buffer);
@@ -214,14 +219,33 @@ int fileSearch(char *file_path)
 
 int searchList(GSList *wordMatch)
 {
+	/* local variables */
 	int op;
-	char *file_path;
+	char *file_path = NULL;
+	int len = 0;
 	
-	printf("\nEnter index of the file whose contents you want to view: ");
-	scanf("%d", &op);
+	/* loop to repeat menu if index is wrong */
+	while(file_path == NULL)
+	{
+		/* get index from user */
+		printf("\nEnter index of the file whose contents you want to view: ");
+		scanf("%d", &op);
+		
+		/* length of the list */
+		len = g_slist_length(wordMatch);
+		
+		/* get the word at the index */
+		file_path =  (char *)g_slist_nth_data(wordMatch, len-op);
+		
+		/* error message if index given by user is wrong */
+		if(file_path == NULL)
+		{
+			printf("\nIndex entered is wrong! Please try again!");
+		}
+	}
 	
-	file_path =  (char *)g_slist_nth_data(wordMatch, op-1);
-	fileSearch(file_path);             //check if user enters wrong index and ask the user to try entering the right index again
+	/* execute the function to display the contents */
+	fileSearch(file_path); 
 	
 	return EXIT_SUCCESS;
 }
