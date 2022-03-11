@@ -51,10 +51,16 @@ int main()
 	
 	printf("\n\n------------------------------------------ LOCAL SEARCH ENGINE STARTING ---------------------------------------------\n\n");
 	
-//	printf("Do you want to enter a base path?(Y/n): \n");
-//	scanf("%c", &ch);
-//	
-//	if(ch == 'Y' || ch == 'y'){
+	printf("Do you want to enter a base path?(Y/n): \n");
+	scanf("%c", &ch);
+	
+	// To clear out the \n from the stream
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF) {
+    		continue;
+	}
+
+	if(ch == 'Y' || ch == 'y'){
 		
 		//Taking base path as input from the user
 		printf("Enter a Base Path :: ");
@@ -69,10 +75,11 @@ int main()
 		//stripping the \n from the fgets().
 		base_path[strcspn(base_path, "\n")] = 0;
 		
-//	}
-//	else{
-//		strcpy(base_path,".");
-//	}
+	}
+	else{
+		base_path = (char*) malloc ( 1  * sizeof(char) );   
+		strcpy(base_path,".");
+	}
 	
 	//LSE / 01-1 -- populating the GSList with all the sub file paths present inside the base path
 	populatePaths(base_path,result,path);
@@ -123,6 +130,12 @@ int main()
 				{
 					printf("\nDo you want to display the contents of any above listed file(Y/N)?: ");
 					scanf("%c", &ch);
+					
+					// To clear out the \n from the stream
+					int c;
+					while ((c = getchar()) != '\n' && c != EOF) {
+    						continue;
+					}
 						
 					//while loop will run and the users can view the contents of the file until they enter a value other than Y
 					while(ch == 'Y' || ch == 'y'){
@@ -136,6 +149,11 @@ int main()
 						printf("\nDo you want to display the contents of any above listed file again(Y/N)?: ");
 						scanf("%c", &ch);
 					
+						// To clear out the \n from the stream
+						int c;
+						while ((c = getchar()) != '\n' && c != EOF) {
+    							continue;
+						}
 					}     
 				}										
 				else
