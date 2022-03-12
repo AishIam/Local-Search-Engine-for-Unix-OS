@@ -121,7 +121,7 @@ int main()
 				fileSearch(file_path);
 				free(file_path);
 				if(retval){
-					printf("\nSome error occurred!"); // should be changed -- error file
+					A_ERROR(ERROR_CRITICAL,ERROR_INVALID_INPUT);; // Displaying Error
 				}
 				break;
 				

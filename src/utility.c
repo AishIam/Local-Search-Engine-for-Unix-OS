@@ -168,7 +168,7 @@ int fileSearch(char *file_path)
 	
 	if(fd < 0)
 	{
-		perror("\nCould not open file!"); //Error Handling
+		A_ERROR(ERROR_CRITICAL,ERROR_OPENING_FILE); //Error Opening File
 		return EXIT_FAILURE;
 	}
 	
@@ -193,7 +193,7 @@ int fileSearch(char *file_path)
 	/* Close the file */	
 	if(close(fd) < 0)
 	{
-		perror("\nCould not close file!"); //Error Handling
+		A_ERROR(ERROR_MAJOR,ERROR_CLOSING_FILE)); //Error Closing File
 		return EXIT_FAILURE;
 	}
 	/* Return success */

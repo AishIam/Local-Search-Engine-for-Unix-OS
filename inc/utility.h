@@ -27,6 +27,20 @@
 #include <string.h> 
 #include <stdlib.h>
 #include <fcntl.h> 
+/*****************List errors defined in search_engine_error.c****************/
+
+#define A_ERROR(err_level, err_code) list_error(err_level, err_code)
+
+/****************************** Error codes **********************************/
+#define ERROR_NONE 0
+#define ERROR_MIN 1
+#define ERROR_CRITICAL 2
+#define ERROR_MAJOR 3
+/****************************** Error list ***********************************/
+#define ERROR_UNEXPECTED 0
+#define ERROR_INVALID_INPUT 1
+#define ERROR_OPENING_FILE 2
+#define ERROR_CLOSING_FILE 3 
 /****************************** Macros  ***************************************/
 #define MAX_BUFF 100
 #define MAX_PATH 100
