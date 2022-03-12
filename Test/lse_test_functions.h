@@ -17,17 +17,11 @@
 #ifndef __LSE_TESTFUNCTIONS_H__
 #define __LSE_TESTFUNCTIONS_H__
 
-/************************** Header Files **************************************/
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <sys/types.h>
+/****************************** Global Variables ***************************************/
+extern GSList* list_func;
+extern GSList* list_match;
 
-#include <CUnit.h>
-#include <Basic.h>
-
-#include <utility.h>
 
 /****************************** Test Function Prototypes ***************************************/
 
@@ -36,7 +30,7 @@ extern void Mytestfunction_populatePaths(void);   //if the base path is provided
 extern void Mytestfunction_populatePaths2(void);	//if the base path is not provided by the user or it is incorrect
 
 //for [LSE]/01-2
-extern void Mytestfunction_textSeach(void);      //if the files containing text are found
+extern void Mytestfunction_textSearch(void);      //if the files containing text are found
 extern void Mytestfunction_textSearch2(void);	//if files containing the text are not found
 
 //for [LSE]/01-3
