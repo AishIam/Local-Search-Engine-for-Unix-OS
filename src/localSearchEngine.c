@@ -134,6 +134,8 @@ int main()
 
 				string = (char*) malloc (strlen(word) * sizeof(char));
 				strcpy(string,word);
+				//Stripping the \n from the fgets().	
+				string[strcspn(string, "\n")] = 0;
 				
 				wordMatch = textSearch(string);
 				
