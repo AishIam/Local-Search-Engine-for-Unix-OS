@@ -79,6 +79,7 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 
 		{
 			snprintf(path+l,MAXPATHLEN - l,"%s/%s",result ,dir->d_name);
+			
 			list = g_slist_prepend(list,strdup(path));
 			memset(path, 0, MAXPATHLEN);
 		}	
@@ -104,7 +105,7 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 **
 ***********************************************************************************************************/
 
-GSList* textSearch(char* str)
+GSList* textSearch(char* str,GSList* list)
 {
 	/*Declaration*/
 	int i = 0;
