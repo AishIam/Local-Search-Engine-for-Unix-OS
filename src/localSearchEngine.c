@@ -48,6 +48,8 @@ int main()
 	int choice = 0;
 	char ch;
 	int op = 0;
+
+	int errnum;
 	GSList* list_new = NULL;
 	
 	//GSlist initialized where file paths will be stored
@@ -103,6 +105,7 @@ int main()
 		
 		// To clear out the \n from the stream
 		int c;
+		int errnum;
 		while ((c = getchar()) != '\n' && c != EOF) {
     			continue;
 		}
@@ -122,7 +125,8 @@ int main()
 				fileSearch(file_path);
 				
 				if(retval){
-					printf("\nSome error occurred!"); // should be changed -- error file
+					errnum = errno;
+					perror("\n Error"); // should be changed -- error file
 				}
 				break;
 				
@@ -175,7 +179,8 @@ int main()
 						
 							if(file_path1 == NULL)
 							{
-								printf("\nIndex entered is wrong! Please try again!");
+								errnum = errno;
+								perror("\n Error ");
 							}
 						}
 						
@@ -193,7 +198,8 @@ int main()
 				else
 				{
 					//if GSList is empty
-					printf("\nNo match found !! \n");											
+					errnum = errno;
+					perror("\n Error");											
 				}
 				
 				break;
@@ -218,5 +224,4 @@ int main()
 	free(file_path);
 	return EXIT_SUCCESS;				
 }
-
 

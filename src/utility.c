@@ -34,6 +34,7 @@
 ***********************************************************************************************************/
 
 int flag = 0;
+int errnum;
 
 GSList *list = NULL;
 
@@ -46,7 +47,8 @@ GSList* populatePaths(char* base_path,char* result, char* path)
 	{
 		flag = 1;
 		if(chdir(base_path) != 0){
-			printf("\nWrong Base Path !!!\nStaring with default Base\n");	
+			errnum = errno;
+			perror("\n Error");	
 		}
 	}	
 	d = opendir( "." );
@@ -160,13 +162,15 @@ int fileSearch(char *file_path)
 	char buffer[MAX_BUFF];
 	int fd = 0;
 	int sz = 0;
+	int errnum;	
 	printf("\nfile path entered:: %s",file_path);	
 	/* Open file specified by user in read mode */
 	fd = open(file_path, O_RDONLY);
 	
 	if(fd < 0)
 	{
-		perror("\nCould not open file!"); //Error Handling
+		errnum = errno;
+		perror("\n Error"); //Error Handling
 		return EXIT_FAILURE;
 	}
 	
@@ -191,7 +195,8 @@ int fileSearch(char *file_path)
 	/* Close the file */	
 	if(close(fd) < 0)
 	{
-		perror("\nCould not close file!"); //Error Handling
+		errnum = errno;
+		perror("\n Error"); //Error Handling
 		return EXIT_FAILURE;
 	}
 	/* Return success */

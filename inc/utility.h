@@ -27,12 +27,14 @@
 #include <string.h> 
 #include <stdlib.h>
 #include <fcntl.h> 
+#include <errno.h>
 /****************************** Macros  ***************************************/
 #define MAX_BUFF 100
 #define MAX_PATH 100
 /****************************** Functions  ***************************************/
 
 extern GSList *list;
+extern int errno;
 
 extern GSList* textSearch(char* string, GSList *list);
 extern int fileSearch(char* str);
