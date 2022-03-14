@@ -113,9 +113,6 @@ GSList* textSearch(char* str)
 	char temp[MAX_BUFF];
 	GSList *wordMatch = NULL;	
 	FILE *files;	
-
-	//Stripping the \n from the fgets().	
-	string[strcspn(string, "\n")] = 0;
 	
 	printf("Files with string match are :: \n");
 
