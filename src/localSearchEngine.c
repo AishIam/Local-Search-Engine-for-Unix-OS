@@ -48,7 +48,7 @@ int main()
 	int choice = 0;
 	char ch;
 	int op = 0;
-	
+	int errnum;
 	//GSlist initialized where file paths will be stored
 	GSList *wordMatch = NULL;
 	path = (char*) malloc (sizeof(char) * MAXPATHLEN);
@@ -102,6 +102,7 @@ int main()
 		
 		// To clear out the \n from the stream
 		int c;
+		int errnum;
 		while ((c = getchar()) != '\n' && c != EOF) {
     			continue;
 		}
@@ -121,7 +122,8 @@ int main()
 				fileSearch(file_path);
 				free(file_path);
 				if(retval){
-					A_ERROR(ERROR_CRITICAL,ERROR_INVALID_INPUT);; // Displaying Error
+					errnum = errno;
+					perror("\n Error"); // should be changed -- error file
 				}
 				break;
 				
@@ -167,7 +169,8 @@ int main()
 						
 							if(file_path1 == NULL)
 							{
-								printf("\nIndex entered is wrong! Please try again!");
+								errnum = errno;
+								perror("\n Error ");
 							}
 						}
 						
@@ -185,7 +188,8 @@ int main()
 				else
 				{
 					//if GSList is empty
-					printf("\nNo match found !! \n");											
+					errnum = errno;
+					perror("\n Error");											
 				}
 				
 				break;
@@ -208,5 +212,4 @@ int main()
 	free(file_path1);
 	return EXIT_SUCCESS;				
 }
-
 
