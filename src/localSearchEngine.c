@@ -48,6 +48,7 @@ int main()
 	int choice = 0;
 	char ch;
 	int op = 0;
+	GSList* list_new = NULL;
 	
 	//GSlist initialized where file paths will be stored
 	GSList *wordMatch = NULL;
@@ -86,7 +87,7 @@ int main()
 	}
 	
 	//LSE / 01-1 -- populating the GSList with all the sub file paths present inside the base path
-	populatePaths(base_path,result,path);
+	list_new = populatePaths(base_path,result,path);
 	free(base_path);	
 	free(path);	
 
@@ -134,8 +135,11 @@ int main()
 
 				string = (char*) malloc (strlen(word) * sizeof(char));
 				strcpy(string,word);
+
+				//Striping \n from the string since fgets is used.
+				string[strcspn(string, "\n")] = 0;
 				
-				wordMatch = textSearch(string);
+				wordMatch = textSearch(string,list);
 				
 				free(string);
 				//checking if GSList is empty or not. If it's empty then there was no match found for word/string entered by the user in the files inside basepath.
@@ -204,7 +208,8 @@ int main()
 	printf("\n\n----------------------------------------- EXITING LOCAL SEARCH ENGINE -----------------------------------------------\n\n");
 	
 	g_slist_free(list);
-	g_slist_free(wordMatch);	
+	g_slist_free(wordMatch);
+	g_slist_free(list_new);	
 	free(file_path1);
 	return EXIT_SUCCESS;				
 }
