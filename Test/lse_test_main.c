@@ -15,6 +15,13 @@
 *****************************************************************************************************/
 
 /************************** Header Files **************************************/
+#include <stdio.h>
+#include <string.h>
+#include <sys/types.h>
+
+
+#include <CUnit.h>
+#include <Basic.h>
 
 #include <utility.h>
 #include <lse_test_functions.h>
@@ -66,45 +73,49 @@ int main(int argc, char *argv[])
 
     /* test cases added */
     
-    //TODO: ADD COMMENTS AND MORE TEST RUNNERS IF NEEDED
-    
+    //LSE/Test - 01
     if(NULL == CU_add_test(pSuite,"Mytestfunction_populatePaths_ID_1", Mytestfunction_populatePaths))
     {
        	CU_cleanup_registry();
         return CU_get_error();
     }
     
+    //LSE/Test - 02
     if(NULL == CU_add_test(pSuite,"Mytestfunction_populatePaths_ID_2", Mytestfunction_populatePaths2))
     {
        	CU_cleanup_registry();
         return CU_get_error();
     }
     
-    if(NULL == CU_add_test(pSuite,"Mytestfunction_textSeach_ID_3", Mytestfunction_textSearch))
+    //LSE/Test - 03
+    if(NULL == CU_add_test(pSuite,"Mytestfunction_textSearch_ID_3", Mytestfunction_textSearch))
     {
        	CU_cleanup_registry();
         return CU_get_error();
     }
     
+    //LSE/Test - 04
     if(NULL == CU_add_test(pSuite,"Mytestfunction_textSearch2_ID_4", Mytestfunction_textSearch2))
     {
        	CU_cleanup_registry();
         return CU_get_error();
     }
     
+    //LSE/Test - 05
     if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch_ID_5", Mytestfunction_fileSearch))
     {
        	CU_cleanup_registry();
         return CU_get_error();
     }
     
+    //LSE/Test - 06
     if(NULL == CU_add_test(pSuite,"Mytestfunction_fileSearch2_ID_6", Mytestfunction_fileSearch2))
     {
        	CU_cleanup_registry();
         return CU_get_error();
     }
     
-   
+   //LSE/Test - 07
     if(NULL == CU_add_test(pSuite,"Mytestfunction_searchList_ID_7", Mytestfunction_searchList))
     {
         CU_cleanup_registry();
@@ -119,6 +130,8 @@ int main(int argc, char *argv[])
 
     /* unregister and do cleanup */
     CU_cleanup_registry(); 
+    
+   
     
     return CU_get_error();
 }

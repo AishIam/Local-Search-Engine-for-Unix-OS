@@ -36,7 +36,7 @@
 extern GSList *list;
 extern int errno;
 
-extern GSList* textSearch(char* string);
+extern GSList* textSearch(char* string, GSList *list);
 extern int fileSearch(char* str);
 extern GSList* populatePaths(char* base_path,char* result, char* path);
 extern char* searchList(GSList *wordMatch,int op);

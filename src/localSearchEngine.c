@@ -48,7 +48,10 @@ int main()
 	int choice = 0;
 	char ch;
 	int op = 0;
+
 	int errnum;
+	GSList* list_new = NULL;
+	
 	//GSlist initialized where file paths will be stored
 	GSList *wordMatch = NULL;
 	path = (char*) malloc (sizeof(char) * MAXPATHLEN);
@@ -86,7 +89,7 @@ int main()
 	}
 	
 	//LSE / 01-1 -- populating the GSList with all the sub file paths present inside the base path
-	populatePaths(base_path,result,path);
+	list_new = populatePaths(base_path,result,path);
 	free(base_path);	
 	free(path);	
 
@@ -94,7 +97,7 @@ int main()
 		
 		//LSE / 01-6 -- Menu driven console user interface
 		printf("\n\n1. To enter the file path and display the contents of the file.\n");
-		printf("2. To search for all the files containing matching string and display the file names.\n");
+		printf("2. To search for all the files containing matching string.\n");
 		printf("3. Exit\n");
 		
 		printf("\n\nEnter your choice: ");
@@ -120,7 +123,7 @@ int main()
 				strcpy(file_path,absolute_file_path);
 				file_path[strcspn(file_path, "\n")] = 0;
 				fileSearch(file_path);
-				free(file_path);
+				
 				if(retval){
 					errnum = errno;
 					perror("\n Error"); // should be changed -- error file
@@ -136,8 +139,15 @@ int main()
 
 				string = (char*) malloc (strlen(word) * sizeof(char));
 				strcpy(string,word);
+
+
+				//Striping \n from the string since fgets is used.
+
+				//Stripping the \n from the fgets().	
+
+				string[strcspn(string, "\n")] = 0;
 				
-				wordMatch = textSearch(string);
+				wordMatch = textSearch(string,list);
 				
 				free(string);
 				//checking if GSList is empty or not. If it's empty then there was no match found for word/string entered by the user in the files inside basepath.
@@ -208,8 +218,10 @@ int main()
 	printf("\n\n----------------------------------------- EXITING LOCAL SEARCH ENGINE -----------------------------------------------\n\n");
 	
 	g_slist_free(list);
-	g_slist_free(wordMatch);	
+	g_slist_free(wordMatch);
+	g_slist_free(list_new);	
 	free(file_path1);
+	free(file_path);
 	return EXIT_SUCCESS;				
 }
 
