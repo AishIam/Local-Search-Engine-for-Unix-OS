@@ -160,7 +160,7 @@ int fileSearch(char *file_path)
 	char buffer[MAX_BUFF];
 	int fd = 0;
 	int sz = 0;
-	printf("\nfile path :: %s",file_path);	
+	printf("\nfile path entered:: %s",file_path);	
 	/* Open file specified by user in read mode */
 	fd = open(file_path, O_RDONLY);
 	
