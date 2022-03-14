@@ -95,7 +95,7 @@ int main()
 		
 		//LSE / 01-6 -- Menu driven console user interface
 		printf("\n\n1. To enter the file path and display the contents of the file.\n");
-		printf("2. To search for all the files containing matching string and display the file names.\n");
+		printf("2. To search for all the files containing matching string.\n");
 		printf("3. Exit\n");
 		
 		printf("\n\nEnter your choice: ");
@@ -135,12 +135,12 @@ int main()
 
 				string = (char*) malloc (strlen(word) * sizeof(char));
 				strcpy(string,word);
-<<<<<<< HEAD
+
 
 				//Striping \n from the string since fgets is used.
-=======
+
 				//Stripping the \n from the fgets().	
->>>>>>> origin/master
+
 				string[strcspn(string, "\n")] = 0;
 				
 				wordMatch = textSearch(string,list);
