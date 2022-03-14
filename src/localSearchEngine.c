@@ -135,8 +135,12 @@ int main()
 
 				string = (char*) malloc (strlen(word) * sizeof(char));
 				strcpy(string,word);
+<<<<<<< HEAD
 
 				//Striping \n from the string since fgets is used.
+=======
+				//Stripping the \n from the fgets().	
+>>>>>>> origin/master
 				string[strcspn(string, "\n")] = 0;
 				
 				wordMatch = textSearch(string,list);
