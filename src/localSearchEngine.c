@@ -120,7 +120,7 @@ int main()
 				strcpy(file_path,absolute_file_path);
 				file_path[strcspn(file_path, "\n")] = 0;
 				fileSearch(file_path);
-				free(file_path);
+				
 				if(retval){
 					printf("\nSome error occurred!"); // should be changed -- error file
 				}
@@ -215,6 +215,7 @@ int main()
 	g_slist_free(wordMatch);
 	g_slist_free(list_new);	
 	free(file_path1);
+	free(file_path);
 	return EXIT_SUCCESS;				
 }
 
